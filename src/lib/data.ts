@@ -1,8 +1,5 @@
 import type { Skill, Experience, Project, Testimonial, SocialLink } from '@/types';
-import Instagram from '@/assets/icons/instagram.svg';
-import Linkedin from '@/assets/icons/linkedin.svg';
-import X from '@/assets/icons/x.svg';
-import GitHub from '@/assets/icons/github.svg';
+import { GitHubIcon, LinkedInIcon, XIcon, InstagramIcon } from '@/components/icons';
 
 export const personalInfo = {
   name: 'Suraj Gupta',
@@ -174,22 +171,22 @@ export const testimonials: Testimonial[] = [
 export const socialLinks: SocialLink[] = [
   {
     name: 'GitHub',
-    url: 'https://github.com/johndoe',
-    icon: GitHub,
+    url: 'https://github.com/surajgupta6178',
+    icon: GitHubIcon,
   },
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/johndoe',
-    icon : Linkedin,
+    url: 'https://linkedin.com/in/surajgupta',
+    icon: LinkedInIcon,
   },
   {
     name: 'Twitter',
-    url: 'https://twitter.com/johndoe',
-    icon: X,
+    url: 'https://twitter.com/surajgupta',
+    icon: XIcon,
   },
   {
     name: 'Instagram',
-    url: 'mailto:john.doe@example.com',
-    icon: Instagram,
+    url: 'https://instagram.com/suraj.gupta.59',
+    icon: InstagramIcon,
   }
 ];

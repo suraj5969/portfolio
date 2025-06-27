@@ -46,8 +46,13 @@ export interface ContactForm {
   message: string;
 }
 
+export interface IconProps {
+  size?: number;
+  className?: string;
+}
+
 export interface SocialLink {
   name: string;
   url: string;
-  icon: string;
+  icon: React.FC<IconProps>;
 }

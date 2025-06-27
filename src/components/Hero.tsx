@@ -27,7 +27,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Hi, I&apos;m{' '}
+            Hi I&apos;m{' '}
             <span className="gradient-text">
               {personalInfo.name}
             </span>
@@ -83,22 +83,23 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1.0 }}
           >
             {socialLinks.map((link, index) => (
-              <motion.a
+                <motion.a
                 key={link.name}
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full border border-border hover:bg-accent transition-colors"
+                className="p-3 rounded-full border border-border hover:bg-accent transition-colors group"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: 1.2 + index * 0.1 }}
-              >
+                >
                 <span className="sr-only">{link.name}</span>
-                {/* We'll replace this with actual icons later */}
-                <div className="w-6 h-6 bg-muted-foreground rounded"></div>
-              </motion.a>
+                <div className="w-6 h-6 rounded group-hover:text-background transition-colors">
+                  <link.icon />
+                </div>
+                </motion.a>
             ))}
           </motion.div>
         </motion.div>

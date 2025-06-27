@@ -1,26 +1,26 @@
-'use client';
-
-import { useState, useEffect, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect, useMemo } from "react";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState("hero");
 
-  const navItems = useMemo(() => [
-    { name: 'Home', href: '#hero' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
-  ], []);
+  const navItems = useMemo(
+    () => [
+      { name: "Home", href: "#hero" },
+      { name: "About", href: "#about" },
+      { name: "Skills", href: "#skills" },
+      { name: "Experience", href: "#experience" },
+      { name: "Projects", href: "#projects" },
+      { name: "Contact", href: "#contact" },
+    ],
+    []
+  );
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navItems.map(item => document.querySelector(item.href) as HTMLElement);
+      const sections = navItems.map((item) => document.querySelector(item.href) as HTMLElement);
       const scrollPosition = window.scrollY + 100;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -32,14 +32,14 @@ const Navigation = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [navItems]);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
     setIsOpen(false);
   };
@@ -49,18 +49,19 @@ const Navigation = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
+      id="navigation"
       className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-border"
     >
       <div className="container">
-        <div className="flex items-center justify-between h-16">
-          <motion.div
+        <div className="flex items-center justify-center h-16">
+          {/* <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="font-bold text-xl gradient-text"
           >
-            John Doe
-          </motion.div>
+            Suraj
+          </motion.div> */}
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -68,10 +69,8 @@ const Navigation = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className={`transition-colors hover:text-primary ${
-                  activeSection === item.href.substring(1)
-                    ? 'text-primary font-medium'
-                    : 'text-muted-foreground'
+                className={`transition-colors cursor-pointer hover:text-primary ${
+                  activeSection === item.href.substring(1) ? "text-primary font-medium" : "text-muted-foreground"
                 }`}
               >
                 {item.name}
@@ -102,9 +101,7 @@ const Navigation = () => {
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
                   className={`text-left py-2 transition-colors hover:text-primary ${
-                    activeSection === item.href.substring(1)
-                      ? 'text-primary font-medium'
-                      : 'text-muted-foreground'
+                    activeSection === item.href.substring(1) ? "text-primary font-medium" : "text-muted-foreground"
                   }`}
                 >
                   {item.name}
