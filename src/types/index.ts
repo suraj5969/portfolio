@@ -6,6 +6,13 @@ export interface Skill {
   category: 'frontend' | 'backend' | 'database' | 'tools' | 'other';
 }
 
+export interface Tool {
+  name: string;
+  logoUrl: string;
+  backText: string;
+  // category: 'frontend' | 'backend' | 'database' | 'tools' | 'other';
+}
+
 export interface Experience {
   id: string;
   title: string;

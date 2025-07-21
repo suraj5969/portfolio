@@ -1,7 +1,7 @@
 import { personalInfo } from "@/lib/data";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  // const currentYear = new Date().getFullYear();
 
   return (
     <footer id="footer" className="bg-slate-900 text-white py-12">
@@ -10,7 +10,7 @@ const Footer = () => {
 
         <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-slate-300">
-            © {currentYear} Made By <span className="gradient-text"> {personalInfo.name}</span> with help of{" "}
+            Made By <span className="gradient-text"> {personalInfo.name}</span> with help of{" "}
             <a href="https://claude.ai/" className="text-primary underline" target="_blank">
               Claude
             </a>{" "}

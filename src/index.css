@@ -208,14 +208,10 @@ html {
 }
 
 .icon-box {
-  width: 60px;
-  height: 60px;
   background: var(--gradient);
-  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
   position: relative;
   overflow: hidden;
 }
@@ -232,8 +228,6 @@ html {
 
 .icon-box svg {
   color: var(--primary-foreground);
-  width: 28px;
-  height: 28px;
 }
 
 .testimonial-card {

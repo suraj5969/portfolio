@@ -1,8 +1,6 @@
-'use client';
-
-import { motion } from 'framer-motion';
-import { skills } from '@/lib/data';
-import type{ Skill } from '@/types';
+import { motion } from "framer-motion";
+import { skills, tools } from "@/lib/data";
+import type { Skill } from "@/types";
 
 const SkillBar = ({ skill, index }: { skill: Skill; index: number }) => {
   return (
@@ -30,11 +28,7 @@ const SkillBar = ({ skill, index }: { skill: Skill; index: number }) => {
   );
 };
 
-const SkillCategory = ({ title, categorySkills, delay }: { 
-  title: string; 
-  categorySkills: Skill[]; 
-  delay: number;
-}) => {
+const SkillCategory = ({ title, categorySkills, delay }: { title: string; categorySkills: Skill[]; delay: number }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -54,52 +48,42 @@ const SkillCategory = ({ title, categorySkills, delay }: {
 };
 
 const Skills = () => {
+
+  
   const skillCategories = {
-    frontend: skills.filter(skill => skill.category === 'frontend'),
-    backend: skills.filter(skill => skill.category === 'backend'),
-    database: skills.filter(skill => skill.category === 'database'),
-    tools: skills.filter(skill => skill.category === 'tools'),
+    frontend: skills.filter((skill) => skill.category === "frontend"),
+    backend: skills.filter((skill) => skill.category === "backend"),
+    database: skills.filter((skill) => skill.category === "database"),
+    tools: skills.filter((skill) => skill.category === "tools"),
   };
 
   return (
     <section id="skills" className="section bg-slate-50 dark:bg-slate-800">
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Technical <span className="gradient-text">Skills</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Here&apos;s a breakdown of my technical expertise across different domains
-          </p>
-        </motion.div>
+      {tools.map((tool) => <></>)}
+      <div className="container grid md:grid-cols-4 gap-8 items-start ">
+        <div className="col-span-1 md:col-span-1"></div>
+        <div className="space-y-6 ms-3 col-span-1 md:col-span-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Technical <span className="gradient-text">Skills</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Here&apos;s a breakdown of my technical expertise across different domains
+            </p>
+          </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          <SkillCategory 
-            title="Frontend Development" 
-            categorySkills={skillCategories.frontend} 
-            delay={0.2}
-          />
-          <SkillCategory 
-            title="Backend Development" 
-            categorySkills={skillCategories.backend} 
-            delay={0.4}
-          />
-          <SkillCategory 
-            title="Database Technologies" 
-            categorySkills={skillCategories.database} 
-            delay={0.6}
-          />
-          <SkillCategory 
-            title="Tools & Technologies" 
-            categorySkills={skillCategories.tools} 
-            delay={0.8}
-          />
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <SkillCategory title="Frontend Development" categorySkills={skillCategories.frontend} delay={0.2} />
+            <SkillCategory title="Backend Development" categorySkills={skillCategories.backend} delay={0.4} />
+            <SkillCategory title="Database Technologies" categorySkills={skillCategories.database} delay={0.6} />
+            <SkillCategory title="Tools & Technologies" categorySkills={skillCategories.tools} delay={0.8} />
+          </div>
         </div>
       </div>
     </section>

@@ -1,5 +1,3 @@
-'use client';
-
 import { motion } from 'framer-motion';
 import { ChevronDown, Download, Mail } from 'lucide-react';
 import { personalInfo, socialLinks } from '@/lib/data';
@@ -82,7 +80,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
           >
-            {socialLinks.map((link, index) => (
+            {/* {socialLinks.map((link, index) => (
                 <motion.a
                 key={link.name}
                 href={link.url}
@@ -100,6 +98,23 @@ const Hero = () => {
                   <link.icon />
                 </div>
                 </motion.a>
+            ))} */}
+            {socialLinks.map((link, index) => (
+              <motion.a
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-border border p-3 rounded-full flex items-center justify-center text-light-gray hover:text-accent hover:bg-opacity-10 transition-all duration-300 hover:scale-110"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.8 + index * 0.1 }}
+              >
+                <span className="sr-only">{link.name}</span>
+                <link.icon className="w-4 h-4" />
+              </motion.a>
             ))}
           </motion.div>
         </motion.div>
@@ -107,7 +122,7 @@ const Hero = () => {
       
       <motion.button
         onClick={() => scrollToSection('about')}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 p-2 rounded-full border border-border hover:bg-accent transition-colors"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 p-2 rounded-full border border-border hover:text-accent transition-colors"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >

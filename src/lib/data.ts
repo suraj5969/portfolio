@@ -1,4 +1,4 @@
-import type { Skill, Experience, Project, Testimonial, SocialLink } from '@/types';
+import type { Skill, Experience, Project, Testimonial, SocialLink, Tool } from '@/types';
 import { GitHubIcon, LinkedInIcon, XIcon, InstagramIcon } from '@/components/icons';
 
 export const personalInfo = {
@@ -41,6 +41,68 @@ export const skills: Skill[] = [
   { name: 'Docker', level: 85, category: 'tools' },
   { name: 'Git', level: 90, category: 'tools' },
   { name: 'CI/CD', level: 80, category: 'tools' },
+];
+
+export const tools: Tool[] = [
+  {
+    name: 'Javascript/Typescript',
+    logoUrl: '/images/typescript.png',
+    backText: 'Bcoz I dont like Java 🤮',
+  },
+  {
+    name: 'Node.js',
+    logoUrl: '/images/node.png',
+    backText: 'It keeps me away from JVM 🏃‍♂️',
+  },  {
+    name: 'React',
+    logoUrl: '/images/react.png',
+    backText: 'Rerenders faster than my mood swings ⚛️',
+  },
+  {
+    name: 'Express.js',
+    logoUrl: '/images/express.png',
+    backText: 'Run my code in secret environments 🤫',
+  },
+  {
+    name: 'Next.js',
+    logoUrl: '/images/next.png',
+    backText: 'All in one 🔮',
+  },
+  {
+    name: 'Python',
+    logoUrl: '/images/python.png',
+    backText: 'To go with the AI train 🚆',
+  },
+  {
+    name: 'PostgreSQL',
+    logoUrl: '/images/postgres.png',
+    backText: 'Big Elephent to query my data 🐘',
+  },
+  {
+    name: 'Redis',
+    logoUrl: '/images/redis.png',
+    backText: 'Return data in a flash 🚀',
+  },
+  {
+    name: 'Tailwind CSS',
+    logoUrl: '/images/tailwind.png',
+    backText: 'Make it look Beautiful 🎨',
+  },
+  {
+    name: 'Vite',
+    logoUrl: '/images/vite.png',
+    backText: 'For blazingly fast DX ⚡',
+  },
+  {
+    name: 'AWS',
+    logoUrl: '/images/aws.png',
+    backText: 'AWSome cloud muscle for my apps 💪',
+  },
+  {
+    name: 'Git',
+    logoUrl: '/images/git.png',
+    backText: 'Time machine for my code 🔄',
+  },
 ];
 
 export const experiences: Experience[] = [
@@ -171,22 +233,22 @@ export const testimonials: Testimonial[] = [
 export const socialLinks: SocialLink[] = [
   {
     name: 'GitHub',
-    url: 'https://github.com/surajgupta6178',
+    url: 'https://github.com/suraj5969',
     icon: GitHubIcon,
   },
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/surajgupta',
+    url: 'https://www.linkedin.com/in/suraj-gupta-50a9ba193/',
     icon: LinkedInIcon,
   },
   {
     name: 'Twitter',
-    url: 'https://twitter.com/surajgupta',
+    url: 'https://x.com/surajgupta_59',
     icon: XIcon,
   },
   {
     name: 'Instagram',
-    url: 'https://instagram.com/suraj.gupta.59',
+    url: 'https://www.instagram.com/suraj.gupta.59/',
     icon: InstagramIcon,
   }
 ];
