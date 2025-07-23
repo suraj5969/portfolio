@@ -11,7 +11,7 @@ A full stack enthusiast—comfortable from front to back, and everything in betw
   TypeScript | Node.js | React | Express | Postgres
 
 - **Side Projects I Love:**  
-  - 🚀 [TaskSprint](#) – Productivity, reimagined  
+  - 🚀 TaskSprint – Productivity, reimagined  
   - 📊 Custom Dashboards – Data, your way  
   - 🎤 Chrome Extension for Mic Issues – Because calls should just work!
 
