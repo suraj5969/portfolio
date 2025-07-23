@@ -254,7 +254,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/suraj-gupta-50a9ba193/",
+    url: "https://www.linkedin.com/in/suraj-gupta59/",
     icon: LinkedInIcon,
   },
   {

@@ -19,7 +19,7 @@ A full stack enthusiast—comfortable from front to back, and everything in betw
 
 ## 🌍 Connect With Me
 
-- [LinkedIn](https://www.linkedin.com/in/suraj-gupta-50a9ba193/)
+- [LinkedIn](https://www.linkedin.com/in/suraj-gupta59/)
 - [Twitter/X](https://x.com/surajgupta_59)
 - [Website](https://surajgupta.dev)
 
