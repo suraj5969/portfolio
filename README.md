@@ -1,54 +1,33 @@
-# React + TypeScript + Vite
+# Hi there, I'm Suraj! 👋
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I'm a passionate **Software Developer** who loves building things that matter.  
+A full stack enthusiast—comfortable from front to back, and everything in between.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚡ What I Do
 
-## Expanding the ESLint configuration
+- **Full Stack Development**  
+  TypeScript | Node.js | React | Express | Postgres
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Side Projects I Love:**  
+  - 🚀 [TaskSprint](#) – Productivity, reimagined  
+  - 📊 Custom Dashboards – Data, your way  
+  - 🎤 Chrome Extension for Mic Issues – Because calls should just work!
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🌍 Connect With Me
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- [LinkedIn](https://www.linkedin.com/in/suraj-gupta-50a9ba193/)
+- [Twitter/X](https://x.com/surajgupta_59)
+- [Website](https://surajgupta.dev)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+---
+
+![Suraj's GitHub Stats](https://github-readme-stats.vercel.app/api?username=suraj5969&show_icons=true&theme=radical)
+
+---
+
+> Building with code, curiosity, and a little bit of caffeine.  
+> Let’s create something awesome!

@@ -124,12 +124,10 @@ html {
   background: var(--gradient);
   color: var(--primary-foreground);
   border-radius: var(--radius);
-  padding: 1rem 2rem;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
   font-weight: 600;
-  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   position: relative;
@@ -161,11 +159,9 @@ html {
   color: var(--text-primary);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1rem 2rem;
   transition: all 0.3s ease;
   cursor: pointer;
   font-weight: 500;
-  font-size: 0.95rem;
 }
 
 .btn-secondary:hover {

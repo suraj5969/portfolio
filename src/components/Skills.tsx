@@ -48,18 +48,8 @@ const SkillCategory = ({ title, categorySkills, delay }: { title: string; catego
 };
 
 const Skills = () => {
-
-  
-  const skillCategories = {
-    frontend: skills.filter((skill) => skill.category === "frontend"),
-    backend: skills.filter((skill) => skill.category === "backend"),
-    database: skills.filter((skill) => skill.category === "database"),
-    tools: skills.filter((skill) => skill.category === "tools"),
-  };
-
   return (
     <section id="skills" className="section bg-slate-50 dark:bg-slate-800">
-      {tools.map((tool) => <></>)}
       <div className="container grid md:grid-cols-4 gap-8 items-start ">
         <div className="col-span-1 md:col-span-1"></div>
         <div className="space-y-6 ms-3 col-span-1 md:col-span-3">
@@ -78,11 +68,36 @@ const Skills = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <SkillCategory title="Frontend Development" categorySkills={skillCategories.frontend} delay={0.2} />
-            <SkillCategory title="Backend Development" categorySkills={skillCategories.backend} delay={0.4} />
-            <SkillCategory title="Database Technologies" categorySkills={skillCategories.database} delay={0.6} />
-            <SkillCategory title="Tools & Technologies" categorySkills={skillCategories.tools} delay={0.8} />
+          {/* Tool Cards Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-center max-w-6xl mx-auto">
+            {tools.map((tool, idx) => (
+              <motion.div
+                key={tool.name}
+                initial={{ opacity: 0, scale: 0.8, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                viewport={{ once: true }}
+                className="relative group cursor-pointer"
+              >
+                {/* Card Container */}
+                <div className="w-32 h-40 mx-auto [perspective:800px]">
+                  <div className="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    {/* Front Side */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 [backface-visibility:hidden]">
+                      <img src={tool.logoUrl} alt={tool.name} className="w-16 h-16 object-contain mb-2" />
+                      <span className="mt-2 font-semibold text-center text-sm">{tool.name}</span>
+                    </div>
+                    {/* Back Side */}
+                    <div
+                      className="absolute inset-0 flex items-center justify-center text-white rounded-xl shadow-lg [transform:rotateY(180deg)] [backface-visibility:hidden] px-4"
+                      style={{ background: "linear-gradient(to bottom right, #4f46e5, #8b5cf6)" }}
+                    >
+                      <span className="text-center text-sm font-medium">{tool.backText}</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

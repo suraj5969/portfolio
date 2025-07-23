@@ -12,20 +12,14 @@ const ExperienceCard = ({ experience, index }: { experience: ExperienceType; ind
       viewport={{ once: true }}
       className="relative"
     >
-      {/* Timeline line */}
-      <div className="absolute left-4 top-8 bottom-0 w-0.5 bg-border"></div>
-
-      {/* Timeline dot */}
-      <div className="absolute left-2 top-6 w-4 h-4 bg-primary rounded-full border-4 border-white dark:border-slate-900"></div>
-
-      <div className="ml-12 card hover:shadow-lg transition-shadow duration-300">
+      <div className="card hover:shadow-lg transition-shadow duration-300">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
           <div>
-            <h3 className="text-xl font-semibold mb-1">{experience.title}</h3>
-            <h4 className="text-lg text-primary font-medium mb-2">{experience.company}</h4>
+            <h3 className="text-lg font-semibold mb-1">{experience.title}</h3>
+            <h4 className="text-md text-primary font-medium mb-2">{experience.company}</h4>
           </div>
-          <div className="flex flex-col md:items-end text-sm text-muted-foreground">
-            <div className="flex items-center gap-1 mb-1">
+          <div className="flex flex-col md:items-end text-muted-foreground">
+            <div className="flex items-center text-sm gap-1 mb-1">
               <Calendar size={14} />
               <span>{experience.duration}</span>
               {experience.current && (
@@ -34,14 +28,14 @@ const ExperienceCard = ({ experience, index }: { experience: ExperienceType; ind
                 </span>
               )}
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 text-sm">
               <MapPin size={14} />
               <span>{experience.location}</span>
             </div>
           </div>
         </div>
 
-        <ul className="space-y-2 mb-6">
+        <ul className="space-y-2 mb-6 text-sm">
           {experience.description.map((item: string, itemIndex: number) => (
             <li key={itemIndex} className="text-muted-foreground flex items-start">
               <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -52,7 +46,7 @@ const ExperienceCard = ({ experience, index }: { experience: ExperienceType; ind
 
         <div className="flex flex-wrap gap-2">
           {experience.technologies.map((tech: string) => (
-            <span key={tech} className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-sm">
+            <span key={tech} className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-xs">
               {tech}
             </span>
           ))}
@@ -83,7 +77,7 @@ const Experience = () => {
             </p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto relative">
+          <div className="max-w-4xl mx-auto relative space-y-4">
             {experiences.map((experience, index) => (
               <ExperienceCard key={experience.id} experience={experience} index={index} />
             ))}

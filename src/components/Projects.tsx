@@ -14,7 +14,8 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
     >
       <div className="relative overflow-hidden rounded-lg mb-4">
         <div className="w-full h-48 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 flex items-center justify-center">
-          <span className="text-muted-foreground">Project Image Placeholder</span>
+          {/* <span className="text-muted-foreground">Project Image Placeholder</span> */}
+                      <img src={project.imageUrl} alt={project.title} className="w-full h-full object-contain mb-2" />
         </div>
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
           <div className="flex gap-2">
@@ -46,33 +47,33 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
         <div>
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-xl font-semibold">{project.title}</h3>
-            {project.featured && (
+            {/* {project.featured && (
               <span className="px-2 py-1 bg-primary text-primary-foreground rounded-full text-xs">
                 Featured
               </span>
-            )}
+            )} */}
           </div>
-          <p className="text-muted-foreground">{project.description}</p>
+          <p className="text-muted-foreground text-sm">{project.description}</p>
         </div>
         
         <div className="flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className="px-2 py-1 bg-muted text-muted-foreground rounded text-sm"
+              className="px-2 py-1 bg-muted text-muted-foreground rounded-full text-xs"
             >
               {tech}
             </span>
           ))}
         </div>
         
-        <div className="flex gap-2 pt-2">
+        <div className="flex gap-3 pt-2">
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary flex items-center gap-2 text-sm px-4 py-2"
+              className="btn-secondary flex items-center gap-2 text-xs py-3 px-4 "
             >
               <Github size={16} />
               Code
@@ -83,10 +84,10 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary flex items-center gap-2 text-sm px-4 py-2"
+              className="btn-primary flex items-center gap-2 text-xs px-4 py-3"
             >
               <ExternalLink size={16} />
-              Live Demo
+              Visit
             </a>
           )}
         </div>
@@ -96,9 +97,6 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 };
 
 const Projects = () => {
-  const featuredProjects = projects.filter(project => project.featured);
-  const otherProjects = projects.filter(project => !project.featured);
-
   return (
     <section id="projects" className="section bg-slate-50 dark:bg-slate-800">
       <div className="container grid md:grid-cols-4 gap-8 items-start ">
@@ -121,34 +119,10 @@ const Projects = () => {
 
         {/* Featured Projects */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {featuredProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
-
-        {/* Other Projects */}
-        {otherProjects.length > 0 && (
-          <>
-            <motion.h3
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-2xl font-semibold text-center mb-8"
-            >
-              Other Projects
-            </motion.h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {otherProjects.map((project, index) => (
-                <ProjectCard 
-                  key={project.id} 
-                  project={project} 
-                  index={index + featuredProjects.length} 
-                />
-              ))}
-            </div>
-          </>
-        )}
         </div>
       </div>
     </section>

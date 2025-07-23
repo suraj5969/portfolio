@@ -55,13 +55,14 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <button
-              onClick={() => scrollToSection('contact')}
+            <a
+              // onClick={() => scrollToSection('contact')}
+              href="mailto:surajgupta6178@gmail.com"
               className="btn-primary flex items-center gap-2 text-lg px-8 py-4"
             >
               <Mail size={20} />
               Get In Touch
-            </button>
+            </a>
             
             <a
               href={personalInfo.resumeUrl}
