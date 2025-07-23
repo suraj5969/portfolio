@@ -1,51 +1,51 @@
 import { motion } from "framer-motion";
-import { skills, tools } from "@/lib/data";
-import type { Skill } from "@/types";
+import { tools } from "@/lib/data";
+// import type { Skill } from "@/types";
 
-const SkillBar = ({ skill, index }: { skill: Skill; index: number }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className="space-y-2"
-    >
-      <div className="flex justify-between items-center">
-        <span className="font-medium">{skill.name}</span>
-        <span className="text-sm text-muted-foreground">{skill.level}%</span>
-      </div>
-      <div className="w-full bg-muted rounded-full h-2">
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: `${skill.level}%` }}
-          transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
-          viewport={{ once: true }}
-          className="h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
-        />
-      </div>
-    </motion.div>
-  );
-};
+// const SkillBar = ({ skill, index }: { skill: Skill; index: number }) => {
+//   return (
+//     <motion.div
+//       initial={{ opacity: 0, y: 20 }}
+//       whileInView={{ opacity: 1, y: 0 }}
+//       transition={{ duration: 0.6, delay: index * 0.1 }}
+//       viewport={{ once: true }}
+//       className="space-y-2"
+//     >
+//       <div className="flex justify-between items-center">
+//         <span className="font-medium">{skill.name}</span>
+//         <span className="text-sm text-muted-foreground">{skill.level}%</span>
+//       </div>
+//       <div className="w-full bg-muted rounded-full h-2">
+//         <motion.div
+//           initial={{ width: 0 }}
+//           whileInView={{ width: `${skill.level}%` }}
+//           transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
+//           viewport={{ once: true }}
+//           className="h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+//         />
+//       </div>
+//     </motion.div>
+//   );
+// };
 
-const SkillCategory = ({ title, categorySkills, delay }: { title: string; categorySkills: Skill[]; delay: number }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay }}
-      viewport={{ once: true }}
-      className="card space-y-6"
-    >
-      <h3 className="text-xl font-semibold text-center capitalize">{title}</h3>
-      <div className="space-y-4">
-        {categorySkills.map((skill, index) => (
-          <SkillBar key={skill.name} skill={skill} index={index} />
-        ))}
-      </div>
-    </motion.div>
-  );
-};
+// const SkillCategory = ({ title, categorySkills, delay }: { title: string; categorySkills: Skill[]; delay: number }) => {
+//   return (
+//     <motion.div
+//       initial={{ opacity: 0, y: 20 }}
+//       whileInView={{ opacity: 1, y: 0 }}
+//       transition={{ duration: 0.8, delay }}
+//       viewport={{ once: true }}
+//       className="card space-y-6"
+//     >
+//       <h3 className="text-xl font-semibold text-center capitalize">{title}</h3>
+//       <div className="space-y-4">
+//         {categorySkills.map((skill, index) => (
+//           <SkillBar key={skill.name} skill={skill} index={index} />
+//         ))}
+//       </div>
+//     </motion.div>
+//   );
+// };
 
 const Skills = () => {
   return (

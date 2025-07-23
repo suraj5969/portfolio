@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
-import { personalInfo, socialLinks } from "@/lib/data";
+import { Send } from "lucide-react";
+// import { personalInfo, socialLinks } from "@/lib/data";
 import type { ContactForm } from "@/types";
 
 const Contact = () => {
