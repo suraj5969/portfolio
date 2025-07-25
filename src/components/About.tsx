@@ -48,7 +48,7 @@ const About = () => {
           className="mx-auto"
         >
           <div className="grid md:grid-cols-4 gap-8 items-start ">
-            <div className="col-span-1 md:col-span-1">
+            <div className="col-span-1 md:col-span-1 hidden md:block">
               <Sticky innerZ={100} className="w-72" top={navHeight || 80}>
                 <InfoCard />
               </Sticky>
@@ -72,7 +72,7 @@ const About = () => {
                   modern design patterns, and staying up-to-date with the latest technologies.
                 </p>
 
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-2 gap-6 text-center md:text-left">
                   <div>
                     <h3 className="font-semibold text-lg mb-2">Experience</h3>
                     <p className="text-2xl font-bold text-primary">4+ Years</p>

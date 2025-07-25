@@ -47,7 +47,23 @@ import { tools } from "@/lib/data";
 //   );
 // };
 
+
+import { useState } from "react";
+
 const Skills = () => {
+  const [flippedIdx, setFlippedIdx] = useState<number | null>(null);
+
+  // Detect if device is touch (mobile/tablet)
+  const isTouchDevice = typeof window !== "undefined" && (
+    "ontouchstart" in window || navigator.maxTouchPoints > 0
+  );
+
+  const handleCardClick = (idx: number) => {
+    if (isTouchDevice) {
+      setFlippedIdx(flippedIdx === idx ? null : idx);
+    }
+  };
+
   return (
     <section id="skills" className="section bg-slate-50 dark:bg-slate-800">
       <div className="container grid md:grid-cols-4 gap-8 items-start ">
@@ -70,34 +86,46 @@ const Skills = () => {
 
           {/* Tool Cards Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-center max-w-6xl mx-auto">
-            {tools.map((tool, idx) => (
-              <motion.div
-                key={tool.name}
-                initial={{ opacity: 0, scale: 0.8, y: 30 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                viewport={{ once: true }}
-                className="relative group cursor-pointer"
-              >
-                {/* Card Container */}
-                <div className="w-32 h-40 mx-auto [perspective:800px]">
-                  <div className="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                    {/* Front Side */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 [backface-visibility:hidden]">
-                      <img src={tool.logoUrl} alt={tool.name} className="w-16 h-16 object-contain mb-2" />
-                      <span className="mt-2 font-semibold text-center text-sm">{tool.name}</span>
-                    </div>
-                    {/* Back Side */}
+            {tools.map((tool, idx) => {
+              // Determine if this card should be flipped (on mobile)
+              const isFlipped = isTouchDevice && flippedIdx === idx;
+              return (
+                <motion.div
+                  key={tool.name}
+                  initial={{ opacity: 0, scale: 0.8, y: 30 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  viewport={{ once: true }}
+                  className="relative group cursor-pointer"
+                  onClick={() => handleCardClick(idx)}
+                >
+                  {/* Card Container */}
+                  <div className="w-32 h-40 mx-auto [perspective:800px]">
                     <div
-                      className="absolute inset-0 flex items-center justify-center text-white rounded-xl shadow-lg [transform:rotateY(180deg)] [backface-visibility:hidden] px-4"
-                      style={{ background: "linear-gradient(to bottom right, #4f46e5, #8b5cf6)" }}
+                      className={
+                        "relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] " +
+                        (isFlipped
+                          ? "[transform:rotateY(180deg)]"
+                          : "group-hover:[transform:rotateY(180deg)]")
+                      }
                     >
-                      <span className="text-center text-sm font-medium">{tool.backText}</span>
+                      {/* Front Side */}
+                      <div className="absolute inset-0 flex flex-col items-center justify-center bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 [backface-visibility:hidden]">
+                        <img src={tool.logoUrl} alt={tool.name} className="w-16 h-16 object-contain mb-2" />
+                        <span className="mt-2 font-semibold text-center text-sm">{tool.name}</span>
+                      </div>
+                      {/* Back Side */}
+                      <div
+                        className="absolute inset-0 flex items-center justify-center text-white rounded-xl shadow-lg [transform:rotateY(180deg)] [backface-visibility:hidden] px-4"
+                        style={{ background: "linear-gradient(to bottom right, #4f46e5, #8b5cf6)" }}
+                      >
+                        <span className="text-center text-sm font-medium">{tool.backText}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

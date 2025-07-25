@@ -208,7 +208,7 @@ export const projects: Project[] = [
     description:
       "A customizable dashboard application that allows users to create personalized dashboards according to their needs. Features include drag-and-drop widget placement, data visualization, and multiple graph types.",
     technologies: ["React", "Apex Charts", "D3.js", "Tailwind CSS"],
-    imageUrl: "/images/custom-dash.png",
+    imageUrl: "/images/dash.png",
     // githubUrl: "
   },
 ];

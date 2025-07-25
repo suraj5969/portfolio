@@ -1,17 +1,20 @@
-import { motion } from 'framer-motion';
-import { ChevronDown, Download, Mail } from 'lucide-react';
-import { personalInfo, socialLinks } from '@/lib/data';
+import { motion } from "framer-motion";
+import { ChevronDown, Download, Mail } from "lucide-react";
+import { personalInfo, socialLinks } from "@/lib/data";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
+    <section
+      id="hero"
+      className="min-h-screen flex pt-16 md:pt-0 items-center justify-center relative bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800"
+    >
       <div className="container text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,19 +22,16 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto md:mt-24"
         >
-          <motion.h1 
+          <motion.h1
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Hi I&apos;m{' '}
-            <span className="gradient-text">
-              {personalInfo.name}
-            </span>
+            Hi I&apos;m <span className="gradient-text">{personalInfo.name}</span>
           </motion.h1>
-          
-          <motion.h2 
+
+          <motion.h2
             className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-8 font-light"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -39,8 +39,8 @@ const Hero = () => {
           >
             {personalInfo.title}
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -48,9 +48,9 @@ const Hero = () => {
           >
             {personalInfo.bio}
           </motion.p>
-          
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+
+          <motion.div
+            className="flex flex-row gap-4 justify-center items-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -58,24 +58,26 @@ const Hero = () => {
             <a
               // onClick={() => scrollToSection('contact')}
               href="mailto:surajgupta6178@gmail.com"
-              className="btn-primary flex items-center gap-2 text-lg px-8 py-4"
+              className="btn-primary flex items-center gap-2 text-sm px-6 py-3 md:text-lg md:px-8 md:py-4"
             >
               <Mail size={20} />
-              Get In Touch
+              <span className="block md:hidden">Contact</span>
+              <span className="hidden md:block">Get In Touch</span>
             </a>
-            
+
             <a
               href={personalInfo.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary flex items-center gap-2 text-lg px-8 py-4"
+              className="btn-secondary flex items-center gap-2 text-sm px-6 py-3 md:text-lg md:px-8 md:py-4"
             >
               <Download size={20} />
-              Download Resume
+              <span className="block md:hidden">Resume</span>
+              <span className="hidden md:block">Download Resume</span>
             </a>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="flex justify-center gap-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -120,9 +122,9 @@ const Hero = () => {
           </motion.div>
         </motion.div>
       </div>
-      
+
       <motion.button
-        onClick={() => scrollToSection('about')}
+        onClick={() => scrollToSection("about")}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 p-2 rounded-full border border-border hover:text-accent transition-colors"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
