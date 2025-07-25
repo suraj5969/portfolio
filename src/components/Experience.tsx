@@ -23,7 +23,7 @@ const ExperienceCard = ({ experience, index }: { experience: ExperienceType; ind
               <Calendar size={14} />
               <span>{experience.duration}</span>
               {experience.current && (
-                <span className="ml-2 px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300 rounded-full text-xs">
+                <span className="ml-2 px-2 py-1 bg-green-900 text-green-300 rounded-full text-xs">
                   Current
                 </span>
               )}
@@ -58,7 +58,7 @@ const ExperienceCard = ({ experience, index }: { experience: ExperienceType; ind
 
 const Experience = () => {
   return (
-    <section id="experience" className="section bg-white dark:bg-slate-900">
+    <section id="experience" className="section bg-slate-900">
       <div className="container grid md:grid-cols-4 gap-8 items-start ">
         <div className="col-span-1 md:col-span-1"></div>
         <div className="space-y-6 ms-3 col-span-1 md:col-span-3">

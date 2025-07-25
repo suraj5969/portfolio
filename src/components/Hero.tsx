@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex pt-16 md:pt-0 items-center justify-center relative bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800"
+      className="min-h-screen flex pt-16 md:pt-0 items-center justify-center relative bg-gradient-to-br from-slate-900 to-slate-800"
     >
       <div className="container text-center">
         <motion.div

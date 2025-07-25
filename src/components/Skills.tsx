@@ -65,7 +65,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="section bg-slate-50 dark:bg-slate-800">
+    <section id="skills" className="section bg-slate-800">
       <div className="container grid md:grid-cols-4 gap-8 items-start ">
         <div className="col-span-1 md:col-span-1"></div>
         <div className="space-y-6 ms-3 col-span-1 md:col-span-3">
@@ -110,7 +110,7 @@ const Skills = () => {
                       }
                     >
                       {/* Front Side */}
-                      <div className="absolute inset-0 flex flex-col items-center justify-center bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 [backface-visibility:hidden]">
+                      <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-900 rounded-xl shadow-lg border border-slate-700 [backface-visibility:hidden]">
                         <img src={tool.logoUrl} alt={tool.name} className="w-16 h-16 object-contain mb-2" />
                         <span className="mt-2 font-semibold text-center text-sm">{tool.name}</span>
                       </div>

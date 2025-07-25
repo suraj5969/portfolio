@@ -13,7 +13,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       className="card group hover:shadow-xl transition-shadow duration-300"
     >
       <div className="relative overflow-hidden rounded-lg mb-4">
-        <div className="w-full h-48 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 flex items-center justify-center">
+        <div className="w-full h-48 bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center">
           {/* <span className="text-muted-foreground">Project Image Placeholder</span> */}
                       <img src={project.imageUrl} alt={project.title} className="w-full h-full object-contain mb-2" />
         </div>
@@ -98,7 +98,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 
 const Projects = () => {
   return (
-    <section id="projects" className="section bg-slate-50 dark:bg-slate-800">
+    <section id="projects" className="section bg-slate-800">
       <div className="container grid md:grid-cols-4 gap-8 items-start ">
         <div className="col-span-1 md:col-span-1"></div>
         <div className="space-y-6 ms-3 col-span-1 md:col-span-3">

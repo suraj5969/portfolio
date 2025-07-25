@@ -38,7 +38,7 @@ const About = () => {
     };
   }, []);
   return (
-    <section id="about" className="section bg-white dark:bg-slate-900">
+    <section id="about" className="section bg-slate-900">
       <div className="container flex">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

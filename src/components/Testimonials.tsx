@@ -51,7 +51,7 @@ const TestimonialCard = ({ testimonial, index }: { testimonial: Testimonial; ind
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="section bg-white dark:bg-slate-900">
+    <section id="testimonials" className="section bg-slate-900">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -42,7 +42,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section bg-slate-50 dark:bg-slate-800">
+    <section id="contact" className="section bg-slate-800">
       <div className="container grid md:grid-cols-4 gap-8 items-start ">
         <div className="col-span-1 md:col-span-1"></div>
         <div className="space-y-6 ms-5 col-span-1 md:col-span-3">
