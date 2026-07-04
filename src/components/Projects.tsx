@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
-import { projects } from '@/lib/data';
-import type { Project } from '@/types';
+import { motion } from "framer-motion";
+import { ExternalLink, Github } from "lucide-react";
+import { projects } from "@/lib/data";
+import type { Project } from "@/types";
 
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
   return (
@@ -15,7 +15,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       <div className="relative overflow-hidden rounded-lg mb-4">
         <div className="w-full h-48 bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center">
           {/* <span className="text-muted-foreground">Project Image Placeholder</span> */}
-                      <img src={project.imageUrl} alt={project.title} className="w-full h-full object-contain mb-2" />
+          <img src={project.imageUrl} alt={project.title} className="w-full h-full object-contain mb-2" />
         </div>
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
           <div className="flex gap-2">
@@ -42,7 +42,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
           </div>
         </div>
       </div>
-      
+
       <div className="space-y-4">
         <div>
           <div className="flex items-center justify-between mb-2">
@@ -53,20 +53,17 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
               </span>
             )} */}
           </div>
-          <p className="text-muted-foreground text-sm">{project.description}</p>
+          <p className="text-foreground/80 text-sm">{project.description}</p>
         </div>
-        
+
         <div className="flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
-            <span
-              key={tech}
-              className="px-2 py-1 bg-muted text-muted-foreground rounded-full text-xs"
-            >
+            <span key={tech} className="px-2 py-1 bg-muted text-foreground/70 rounded-full text-xs">
               {tech}
             </span>
           ))}
         </div>
-        
+
         <div className="flex gap-3 pt-2">
           {project.githubUrl && (
             <a
@@ -102,27 +99,27 @@ const Projects = () => {
       <div className="container grid md:grid-cols-4 gap-8 items-start ">
         <div className="col-span-1 md:col-span-1"></div>
         <div className="space-y-6 ms-3 col-span-1 md:col-span-3">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Featured <span className="gradient-text">Projects</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A selection of projects that showcase my skills and experience
-          </p>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Featured <span className="gradient-text">Projects</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              A selection of projects that showcase my skills and experience
+            </p>
+          </motion.div>
 
-        {/* Featured Projects */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
-        </div>
+          {/* Featured Projects */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {projects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

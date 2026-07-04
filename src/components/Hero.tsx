@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Download, Mail } from "lucide-react";
+import { ArrowRight, ChevronDown, Download, Mail } from "lucide-react";
 import { personalInfo, socialLinks } from "@/lib/data";
 import HeroBackground from "./HeroBackground";
 
@@ -14,14 +14,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex pt-16 md:pt-0 items-center justify-center relative overflow-hidden"
-      style={{
-        background:
-          "radial-gradient(ellipse 80% 60% at 20% 40%, rgba(255,118,0,0.10) 0%, transparent 60%)," +
-          "radial-gradient(ellipse 60% 50% at 80% 20%, rgba(255,219,112,0.08) 0%, transparent 55%)," +
-          "radial-gradient(ellipse 50% 40% at 60% 80%, rgba(255,118,0,0.06) 0%, transparent 50%)," +
-          "#1e1e1f",
-      }}
+      className="min-h-screen flex pt-16 md:pt-0 items-center justify-center relative bg-gradient-to-br from-slate-900 to-slate-800 overflow-hidden"
     >
       <HeroBackground />
       <div className="container text-center">
@@ -41,7 +34,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.h2
-            className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-8 font-light"
+            className="text-xl md:text-2xl lg:text-3xl text-foreground/90 mb-8 font-medium"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -50,7 +43,7 @@ const Hero = () => {
           </motion.h2>
 
           <motion.p
-            className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-foreground/80 mb-12 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -64,15 +57,14 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <a
-              // onClick={() => scrollToSection('contact')}
-              href="mailto:surajgupta6178@gmail.com"
+            <button
+              onClick={() => scrollToSection("projects")}
               className="btn-primary flex items-center gap-2 text-sm px-6 py-3 md:text-lg md:px-8 md:py-4"
             >
-              <Mail size={20} />
-              <span className="block md:hidden">Contact</span>
-              <span className="hidden md:block">Get In Touch</span>
-            </a>
+              <ArrowRight size={20} />
+              {/* <span className="block md:hidden">Contact</span> */}
+              <span>View my work</span>
+            </button>
 
             <a
               href={personalInfo.resumeUrl}

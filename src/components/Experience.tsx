@@ -23,9 +23,7 @@ const ExperienceCard = ({ experience, index }: { experience: ExperienceType; ind
               <Calendar size={14} />
               <span>{experience.duration}</span>
               {experience.current && (
-                <span className="ml-2 px-2 py-1 bg-green-900 text-green-300 rounded-full text-xs">
-                  Current
-                </span>
+                <span className="ml-2 px-2 py-1 bg-green-900 text-green-300 rounded-full text-xs">Current</span>
               )}
             </div>
             <div className="flex items-center gap-1 text-sm">
@@ -37,7 +35,7 @@ const ExperienceCard = ({ experience, index }: { experience: ExperienceType; ind
 
         <ul className="space-y-2 mb-6 text-sm">
           {experience.description.map((item: string, itemIndex: number) => (
-            <li key={itemIndex} className="text-muted-foreground flex items-start">
+            <li key={itemIndex} className="text-foreground/80 flex items-start">
               <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
               {item}
             </li>
@@ -46,7 +44,7 @@ const ExperienceCard = ({ experience, index }: { experience: ExperienceType; ind
 
         <div className="flex flex-wrap gap-2">
           {experience.technologies.map((tech: string) => (
-            <span key={tech} className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-xs">
+            <span key={tech} className="px-3 py-1 bg-muted text-foreground/60 rounded-full text-xs">
               {tech}
             </span>
           ))}

@@ -8,8 +8,8 @@ interface Particle {
   radius: number;
   opacity: number;
   baseOpacity: number;
-  phase: number;       // unique sine-wave offset per particle
-  floatSpeed: number;  // how fast it bobs
+  phase: number; // unique sine-wave offset per particle
+  floatSpeed: number; // how fast it bobs
   color: string;
 }
 
@@ -41,7 +41,7 @@ const HeroBackground = () => {
 
     const initParticles = () => {
       particles = Array.from({ length: PARTICLE_COUNT }, () => {
-        const baseOpacity = Math.random() * 0.35 + 0.12;
+        const baseOpacity = Math.random() * 0.35 + 0.3;
         return {
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
@@ -50,7 +50,7 @@ const HeroBackground = () => {
           radius: Math.random() * 1.5 + 0.8,
           opacity: baseOpacity,
           baseOpacity,
-          phase: Math.random() * Math.PI * 2,      // random start in cycle
+          phase: Math.random() * Math.PI * 2, // random start in cycle
           floatSpeed: Math.random() * 0.0004 + 0.0002, // 0.2–0.6 ms⁻¹
           color: COLORS[Math.floor(Math.random() * COLORS.length)],
         };

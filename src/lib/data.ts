@@ -3,8 +3,8 @@ import { GitHubIcon, LinkedInIcon, XIcon, InstagramIcon } from "@/components/ico
 
 export const personalInfo = {
   name: "Suraj Gupta",
-  title: "Full Stack Developer",
-  bio: "Full-stack engineer with 5+ years of experience, now specialising in AI-powered product development, technical leadership, and developer tooling. I build AI agents, design system architectures, and lead teams that ship production-grade web applications.",
+  title: "Full Stack AI Engineer",
+  bio: "Engineer with 5+ years of experience, specialising in AI-powered product development, technical leadership, and developer tooling. I build AI agents, design system architectures, and lead teams that ship production-grade web applications.",
   email: "surajgupta6178@gmail.com",
   phone: "+91 96651 37682",
   location: "Nashik, India",
@@ -45,6 +45,17 @@ export const skills: Skill[] = [
 
 export const tools: Tool[] = [
   {
+    name: "Python",
+    logoUrl: "/images/python.png",
+    backText: "To go with the AI train 🚆",
+  },
+  {
+    name: "LangChain",
+    logoUrl: "/images/langchain.png",
+    backText: "To chain my agents like a pro 🔗",
+  },
+
+  {
     name: "Typescript",
     logoUrl: "/images/typescript.png",
     backText: "Bcoz I dont like Java 🤮",
@@ -60,9 +71,14 @@ export const tools: Tool[] = [
     backText: "Rerenders faster than my mood swings ⚛️",
   },
   {
+    name: "PyTorch",
+    logoUrl: "/images/pytorch.png",
+    backText: "To train my models hard 🔥",
+  },
+  {
     name: "Express.js",
     logoUrl: "/images/express.png",
-    backText: "Runs my code in secret environments 🤫",
+    backText: "Runs my code in in my servers 💻",
   },
   {
     name: "Next.js",
@@ -70,19 +86,9 @@ export const tools: Tool[] = [
     backText: "For All in one 🔮",
   },
   {
-    name: "Python",
-    logoUrl: "/images/python.png",
-    backText: "To go with the AI train 🚆",
-  },
-  {
     name: "PostgreSQL",
     logoUrl: "/images/postgres.png",
     backText: "Big Elephent to query my data 🐘",
-  },
-  {
-    name: "Redis",
-    logoUrl: "/images/redis.png",
-    backText: "To return data in a flash 🚀",
   },
   {
     name: "Tailwind CSS",
@@ -99,21 +105,34 @@ export const tools: Tool[] = [
     logoUrl: "/images/aws.png",
     backText: "AWSome cloud muscle for my apps 💪",
   },
-  {
-    name: "Git",
-    logoUrl: "/images/git.png",
-    backText: "Time machine for my code 🔄",
-  },
+  // {
+  //   name: "Git",
+  //   logoUrl: "/images/git.png",
+  //   backText: "Time machine for my code 🔄",
+  // },
 ];
 
 export const experiences: Experience[] = [
   {
-    id: "1",
-    title: "Senior Full-Stack Engineer / Tech Lead",
+    id: "0",
+    title: "Full Stack AI Engineer / Tech lead",
     company: "SafetyConnect",
     location: "Remote",
-    duration: "Mar 2023 - Present",
-    current: true,
+    duration: "Mar 2025 - Mar 2026",
+    // current: true,
+    description: [
+      "Built an RAG-based AI chatbot integrating structured SQL analytics with semantic search over product documentation, SOPs, and knowledge base articles.",
+      "Engineered an AI orchestration pipeline with intelligent query routing, tool selection, and hybrid SQL/RAG execution, improving response accuracy while supporting complex analytical and knowledge-based queries.",
+      "Developed an end-to-end LLM evaluation and safety framework with benchmark datasets, automated quality checks, guardrails, prompt injection detection, SQL validation, and observability to ensure reliable and secure production deployments.",
+    ],
+    technologies: ["Python", "LangChain", "RAG", "LlamaIndex", "Typescript"],
+  },
+  {
+    id: "1",
+    title: "Full Stack Engineer",
+    company: "SafetyConnect",
+    location: "Remote",
+    duration: "Mar 2023 - Mar 2025",
     description: [
       "Architected and built a customizable dashboard that lets customers create and visualise safety data in real time, improving reporting and personalized insights per customer",
       "Refactored Node.js micro-services and tuned database indexes, cutting AWS spend by 30% and shrinking median API latency from 400 ms to 250 ms",
@@ -126,7 +145,7 @@ export const experiences: Experience[] = [
   },
   {
     id: "2",
-    title: "Founding Engineer / Full-Stack Developer",
+    title: "Founding Engineer",
     company: "LST Consultancy",
     location: "Nashik, IN",
     duration: "Sep 2021 - Feb 2023",
@@ -156,10 +175,20 @@ export const experiences: Experience[] = [
 // sequelize-with-spalite, chrome extension, tasksprint, process afety, driver safety, custom dashboard,
 export const projects: Project[] = [
   {
+    id: "0",
+    title: "RAG Chatbot",
+    description:
+      "RAG-based AI assistant capable of answering queries using hybrid retrieval from vector embeddings. Runs local inference using LlamaCPP.",
+    technologies: ["RAG", "LlamaCPP", "Python", "LangChain", "Chroma", "FastAPI"],
+    githubUrl: "https://github.com/suraj5969/rag-chatbot",
+    // liveUrl: "https://www.npmjs.com/package/sequelize-with-spatialite",
+    imageUrl: "/images/miraai.png",
+  },
+  {
     id: "1",
     title: "Npm Package: Sequelize with Spatialite",
     description:
-      "Added spatialite support to Sequelize ORM to use with SQLite, enabling advanced geospatial queries and operations in Node.js applications. This integration allows developers to have support for spatial queries in Sequelize with SQLite databases, making it easier to work with geospatial data.",
+      "Added spatialite support to Sequelize ORM to use with SQLite, enabling advanced geospatial queries and operations in Node.js applications.",
     technologies: ["SQLite", "Spatialite", "Sequelize", "ORM"],
     githubUrl: "https://github.com/suraj5969/sequelize-with-spatialite",
     liveUrl: "https://www.npmjs.com/package/sequelize-with-spatialite",
@@ -202,15 +231,15 @@ export const projects: Project[] = [
     liveUrl: "https://driver-safety.safetyconnect.io/",
     imageUrl: "/images/driver-safety.png",
   },
-  {
-    id: "6",
-    title: "Custom Dashboard",
-    description:
-      "A customizable dashboard application that allows users to create personalized dashboards according to their needs. Features include drag-and-drop widget placement, data visualization, and multiple graph types.",
-    technologies: ["React", "Apex Charts", "D3.js", "Tailwind CSS"],
-    imageUrl: "/images/dash.png",
-    // githubUrl: "
-  },
+  // {
+  //   id: "6",
+  //   title: "Custom Dashboard",
+  //   description:
+  //     "A customizable dashboard application that allows users to create personalized dashboards according to their needs. Features include drag-and-drop widget placement, data visualization, and multiple graph types.",
+  //   technologies: ["React", "Apex Charts", "D3.js", "Tailwind CSS"],
+  //   imageUrl: "/images/dash.png",
+  //   // githubUrl: "
+  // },
 ];
 
 export const testimonials: Testimonial[] = [

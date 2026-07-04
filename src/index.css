@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import './styles/typography.css';
+@import "./styles/typography.css";
 
 :root {
   --background: #1e1e1f;
@@ -42,7 +42,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Inter", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-optical-sizing: none;
   line-height: 1.6;
 }
@@ -100,7 +100,7 @@ html {
 }
 
 .card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -135,7 +135,7 @@ html {
 }
 
 .btn-primary::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -188,7 +188,7 @@ html {
 }
 
 .skill-progress::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -199,8 +199,12 @@ html {
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .icon-box {
@@ -213,7 +217,7 @@ html {
 }
 
 .icon-box::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -257,7 +261,7 @@ html {
 }
 
 .timeline-item::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -269,7 +273,7 @@ html {
 }
 
 .timeline-item::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 5px;
   top: 12px;
@@ -334,7 +338,7 @@ html {
 }
 
 .hero-gradient::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;

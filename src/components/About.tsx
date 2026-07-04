@@ -64,26 +64,31 @@ const About = () => {
                 <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
                   About <span className="gradient-text">Me</span>
                 </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">{personalInfo.bio}</p>
+                <p className="text-lg text-foreground/90 leading-relaxed">
+                  I'm a Full-Stack AI Engineer with experience building end-to-end AI-powered products and scalable web
+                  applications. My work spans LLM applications, RAG systems, agentic workflows, along with modern
+                  backend and frontend development. I enjoy solving complex engineering problems at the intersection of
+                  AI, distributed systems, and software architecture.
+                </p>
 
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  With a strong foundation in both frontend and backend technologies, I enjoy creating seamless user
-                  experiences while ensuring robust and scalable backend systems. I&apos;m passionate about clean code,
-                  modern design patterns, and staying up-to-date with the latest technologies.
+                <p className="text-lg text-foreground/90 leading-relaxed">
+                  Currently, I'm focused on advancing my expertise in AI engineering, machine learning, and mathematical
+                  foundations while building production-ready intelligent systems that deliver measurable business
+                  impact.
                 </p>
 
                 <div className="grid grid-cols-2 gap-6 text-center md:text-left">
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Experience</h3>
-                    <p className="text-2xl font-bold text-primary">4+ Years</p>
+                    <h5 className="font-semibold text-lg mb-2">Experience</h5>
+                    <p className="text-xl font-bold text-primary">5+ Years</p>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg mb-2">Projects</h3>
-                    <p className="text-2xl font-bold text-primary">20+</p>
+                    <h5 className="font-semibold text-lg mb-2">Projects</h5>
+                    <p className="text-xl font-bold text-primary">20+</p>
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-2">Location</h3>
-                    <p className="text-muted-foreground">{personalInfo.location}</p>
+                    <p className="text-foreground/90">{personalInfo.location}</p>
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-2">Status</h3>
