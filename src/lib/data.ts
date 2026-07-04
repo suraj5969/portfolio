@@ -4,7 +4,7 @@ import { GitHubIcon, LinkedInIcon, XIcon, InstagramIcon } from "@/components/ico
 export const personalInfo = {
   name: "Suraj Gupta",
   title: "Full Stack Developer",
-  bio: "Passionate full-stack developer with 4+ years of experience building scalable web applications. I specialize in React, Node.js, and cloud technologies, with a focus on creating exceptional user experiences.",
+  bio: "Full-stack engineer with 5+ years of experience, now specialising in AI-powered product development, technical leadership, and developer tooling. I build AI agents, design system architectures, and lead teams that ship production-grade web applications.",
   email: "surajgupta6178@gmail.com",
   phone: "+91 96651 37682",
   location: "Nashik, India",

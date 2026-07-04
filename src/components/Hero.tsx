@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown, Download, Mail } from "lucide-react";
 import { personalInfo, socialLinks } from "@/lib/data";
+import HeroBackground from "./HeroBackground";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -13,8 +14,16 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex pt-16 md:pt-0 items-center justify-center relative bg-gradient-to-br from-slate-900 to-slate-800"
+      className="min-h-screen flex pt-16 md:pt-0 items-center justify-center relative overflow-hidden"
+      style={{
+        background:
+          "radial-gradient(ellipse 80% 60% at 20% 40%, rgba(255,118,0,0.10) 0%, transparent 60%)," +
+          "radial-gradient(ellipse 60% 50% at 80% 20%, rgba(255,219,112,0.08) 0%, transparent 55%)," +
+          "radial-gradient(ellipse 50% 40% at 60% 80%, rgba(255,118,0,0.06) 0%, transparent 50%)," +
+          "#1e1e1f",
+      }}
     >
+      <HeroBackground />
       <div className="container text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
