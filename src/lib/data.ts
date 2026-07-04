@@ -219,7 +219,7 @@ export const projects: Project[] = [
     description:
       "A comprehensive process safety management system that helps organizations comply with safety regulations. Features include incident reporting, risk assessment, and compliance tracking.",
     technologies: ["React", "Typescript", "Express.js", "PostgreSQL", "AWS"],
-    liveUrl: "https:/ps.safetyconnect.io/",
+    liveUrl: "https://www.safetyconnect.io/process-safety",
     imageUrl: "/images/process-safety.png",
   },
   {
@@ -228,7 +228,7 @@ export const projects: Project[] = [
     description:
       "A driver safety application that monitors driving behavior and provides real-time feedback to improve safety. Features include GPS tracking, speed monitoring, and incident reporting.",
     technologies: ["React", "Typescript", "Redis", "WebHooks", "AWS"],
-    liveUrl: "https://driver-safety.safetyconnect.io/",
+    liveUrl: "https://www.safetyconnect.io/driving-safety",
     imageUrl: "/images/driver-safety.png",
   },
   // {
