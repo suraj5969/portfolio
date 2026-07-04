@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown, Download, Mail } from "lucide-react";
+import { ArrowRight, ChevronDown, Download } from "lucide-react";
 import { personalInfo, socialLinks } from "@/lib/data";
 import HeroBackground from "./HeroBackground";
 
