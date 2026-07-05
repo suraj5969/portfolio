@@ -54,7 +54,11 @@ export const tools: Tool[] = [
     logoUrl: "/images/langchain.png",
     backText: "To chain my agents like a pro 🔗",
   },
-
+  {
+    name: "PyTorch",
+    logoUrl: "/images/pytorch.png",
+    backText: "To train my models hard 🔥",
+  },
   {
     name: "Typescript",
     logoUrl: "/images/typescript.png",
@@ -71,11 +75,6 @@ export const tools: Tool[] = [
     backText: "Rerenders faster than my mood swings ⚛️",
   },
   {
-    name: "PyTorch",
-    logoUrl: "/images/pytorch.png",
-    backText: "To train my models hard 🔥",
-  },
-  {
     name: "Express.js",
     logoUrl: "/images/express.png",
     backText: "Runs my code in in my servers 💻",
@@ -86,6 +85,16 @@ export const tools: Tool[] = [
     backText: "For All in one 🔮",
   },
   {
+    name: "Docker",
+    logoUrl: "/images/docker.png",
+    backText: "To make it work Everywhere 📦",
+  },
+  {
+    name: "AWS",
+    logoUrl: "/images/aws.png",
+    backText: "AWSome cloud muscle for my apps 💪",
+  },
+  {
     name: "PostgreSQL",
     logoUrl: "/images/postgres.png",
     backText: "Big Elephent to query my data 🐘",
@@ -94,16 +103,6 @@ export const tools: Tool[] = [
     name: "Tailwind CSS",
     logoUrl: "/images/tailwind.png",
     backText: "To make it look Beautiful 🎨",
-  },
-  {
-    name: "Vite",
-    logoUrl: "/images/vite.png",
-    backText: "For blazingly fast DX ⚡",
-  },
-  {
-    name: "AWS",
-    logoUrl: "/images/aws.png",
-    backText: "AWSome cloud muscle for my apps 💪",
   },
   // {
   //   name: "Git",
