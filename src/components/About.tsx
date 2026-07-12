@@ -65,10 +65,10 @@ const About = () => {
                   About <span className="gradient-text">Me</span>
                 </h2>
                 <p className="text-lg text-foreground/90 leading-relaxed">
-                  I'm a Full-Stack AI Engineer with experience building end-to-end AI-powered products and scalable web
-                  applications. My work spans LLM applications, RAG systems, agentic workflows, along with modern
-                  backend and frontend development. I enjoy solving complex engineering problems at the intersection of
-                  AI, distributed systems, and software architecture.
+                  I'm a Full-Stack Developer with experience building end-to-end AI-powered products and scalable web
+                  applications. My work spans LLM applications, RAG systems, along with modern backend and frontend
+                  development. I enjoy solving complex engineering problems at the intersection of AI, scalable systems,
+                  and software architecture.
                 </p>
 
                 <p className="text-lg text-foreground/90 leading-relaxed">

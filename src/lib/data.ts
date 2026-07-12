@@ -3,8 +3,8 @@ import { GitHubIcon, LinkedInIcon, XIcon, InstagramIcon } from "@/components/ico
 
 export const personalInfo = {
   name: "Suraj Gupta",
-  title: "Full Stack AI Engineer",
-  bio: "Engineer with 5+ years of experience, specialising in AI-powered product development, technical leadership, and developer tooling. I build AI agents, design system architectures, and lead teams that ship production-grade web applications.",
+  title: "Full Stack Developer",
+  bio: "Engineer with 5+ years of experience, specialising in AI-powered product development, technical leadership, and developer tooling. I build scalable backends, design system architectures, and lead teams that ship production-grade web applications.",
   email: "surajgupta6178@gmail.com",
   phone: "+91 96651 37682",
   location: "Nashik, India",
@@ -45,29 +45,19 @@ export const skills: Skill[] = [
 
 export const tools: Tool[] = [
   {
-    name: "Python",
-    logoUrl: "/images/python.png",
-    backText: "To go with the AI train 🚆",
-  },
-  {
-    name: "LangChain",
-    logoUrl: "/images/langchain.png",
-    backText: "To chain my agents like a pro 🔗",
-  },
-  {
-    name: "PyTorch",
-    logoUrl: "/images/pytorch.png",
-    backText: "To train my models hard 🔥",
-  },
-  {
     name: "Typescript",
     logoUrl: "/images/typescript.png",
     backText: "Bcoz I dont like Java 🤮",
   },
   {
+    name: "Python",
+    logoUrl: "/images/python.png",
+    backText: "To go with the AI train 🚆",
+  },
+  {
     name: "Node.js",
     logoUrl: "/images/node.png",
-    backText: "It keeps me away from JVM 🏃‍♂️",
+    backText: "Runs my javascript everywhere 🏃‍♂️",
   },
   {
     name: "React",
@@ -75,14 +65,19 @@ export const tools: Tool[] = [
     backText: "Rerenders faster than my mood swings ⚛️",
   },
   {
+    name: "Next.js",
+    logoUrl: "/images/next.png",
+    backText: "For All in one 🔮",
+  },
+  {
     name: "Express.js",
     logoUrl: "/images/express.png",
     backText: "Runs my code in in my servers 💻",
   },
   {
-    name: "Next.js",
-    logoUrl: "/images/next.png",
-    backText: "For All in one 🔮",
+    name: "LangChain",
+    logoUrl: "/images/langchain.png",
+    backText: "To chain my agents like a pro 🔗",
   },
   {
     name: "Docker",
@@ -104,6 +99,11 @@ export const tools: Tool[] = [
     logoUrl: "/images/tailwind.png",
     backText: "To make it look Beautiful 🎨",
   },
+  {
+    name: "Vite",
+    logoUrl: "/images/vite.png",
+    backText: "For blazingly fast DX ⚡",
+  },
   // {
   //   name: "Git",
   //   logoUrl: "/images/git.png",
@@ -113,26 +113,13 @@ export const tools: Tool[] = [
 
 export const experiences: Experience[] = [
   {
-    id: "0",
-    title: "Full Stack AI Engineer / Tech lead",
+    id: "1",
+    title: "Full Stack Developer / Tech Lead",
     company: "SafetyConnect",
     location: "Remote",
-    duration: "Mar 2025 - Mar 2026",
-    // current: true,
+    duration: "Feb 2023 - Mar 2026",
     description: [
       "Built an RAG-based AI chatbot integrating structured SQL analytics with semantic search over product documentation, SOPs, and knowledge base articles.",
-      "Engineered an AI orchestration pipeline with intelligent query routing, tool selection, and hybrid SQL/RAG execution, improving response accuracy while supporting complex analytical and knowledge-based queries.",
-      "Developed an end-to-end LLM evaluation and safety framework with benchmark datasets, automated quality checks, guardrails, prompt injection detection, SQL validation, and observability to ensure reliable and secure production deployments.",
-    ],
-    technologies: ["Python", "LangChain", "RAG", "LlamaIndex", "Typescript"],
-  },
-  {
-    id: "1",
-    title: "Full Stack Engineer",
-    company: "SafetyConnect",
-    location: "Remote",
-    duration: "Mar 2023 - Mar 2025",
-    description: [
       "Architected and built a customizable dashboard that lets customers create and visualise safety data in real time, improving reporting and personalized insights per customer",
       "Refactored Node.js micro-services and tuned database indexes, cutting AWS spend by 30% and shrinking median API latency from 400 ms to 250 ms",
       "Implemented an automated translation pipeline to improve accessibility for global users",
@@ -140,7 +127,18 @@ export const experiences: Experience[] = [
       "Managed AWS infra, including EC2, S3, RDS, and SNS; optimised costs and improved reliability through better monitoring and alerting",
       "Engineered a configurable form-builder module and optimized the underlying workflow engine, serving as a key driver in delivering the company’s new process-safety solution",
     ],
-    technologies: ["React", "Vite", "TypeScript", "Node.js", "Tailwind CSS", "AWS", "OpenAPI"],
+    technologies: [
+      "React",
+      "Vite",
+      "TypeScript",
+      "Node.js",
+      "Tailwind CSS",
+      "AWS",
+      "OpenAPI",
+      "Python",
+      "LangChain",
+      "RAG",
+    ],
   },
   {
     id: "2",
