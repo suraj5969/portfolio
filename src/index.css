@@ -2,6 +2,7 @@
 @import "./styles/typography.css";
 
 :root {
+  color-scheme: dark;
   --background: #1e1e1f;
   --surface: #1e1e1f;
   --foreground: #ffffff;
