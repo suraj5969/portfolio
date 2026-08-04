@@ -1,10 +1,15 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const location = useLocation();
+
+  const isPortfolioPage = location.pathname === "/";
+  const isBlogPage = location.pathname.startsWith("/blog");
 
   const navItems = useMemo(
     () => [
@@ -19,6 +24,8 @@ const Navigation = () => {
   );
 
   useEffect(() => {
+    if (!isPortfolioPage) return;
+
     const handleScroll = () => {
       const sections = navItems.map((item) => document.querySelector(item.href) as HTMLElement);
       const scrollPosition = window.scrollY + 100;
@@ -34,7 +41,7 @@ const Navigation = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [navItems]);
+  }, [navItems, isPortfolioPage]);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -54,28 +61,46 @@ const Navigation = () => {
     >
       <div className="container">
         <div className="flex items-center justify-center h-16">
-          {/* <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="font-bold text-xl gradient-text"
-          >
-            Suraj
-          </motion.div> */}
-
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className={`transition-colors cursor-pointer hover:text-primary ${
-                  activeSection === item.href.substring(1) ? "text-primary font-medium" : "text-muted-foreground"
-                }`}
-              >
-                {item.name}
-              </button>
-            ))}
+            {isPortfolioPage ? (
+              <>
+                {navItems.map((item) => (
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.href)}
+                    className={`transition-colors cursor-pointer hover:text-primary ${
+                      activeSection === item.href.substring(1) ? "text-primary font-medium" : "text-muted-foreground"
+                    }`}
+                  >
+                    {item.name}
+                  </button>
+                ))}
+                <Link
+                  to="/blog"
+                  className="transition-colors cursor-pointer hover:text-primary text-muted-foreground"
+                >
+                  Blog
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/"
+                  className="transition-colors cursor-pointer hover:text-primary text-muted-foreground"
+                >
+                  ← Home
+                </Link>
+                <Link
+                  to="/blog"
+                  className={`transition-colors cursor-pointer hover:text-primary ${
+                    isBlogPage ? "text-primary font-medium" : "text-muted-foreground"
+                  }`}
+                >
+                  Blog
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Navigation Toggle */}
@@ -96,17 +121,47 @@ const Navigation = () => {
             className="md:hidden py-4 border-t border-border"
           >
             <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className={`text-left py-2 transition-colors hover:text-primary ${
-                    activeSection === item.href.substring(1) ? "text-primary font-medium" : "text-muted-foreground"
-                  }`}
-                >
-                  {item.name}
-                </button>
-              ))}
+              {isPortfolioPage ? (
+                <>
+                  {navItems.map((item) => (
+                    <button
+                      key={item.name}
+                      onClick={() => scrollToSection(item.href)}
+                      className={`text-left py-2 transition-colors hover:text-primary ${
+                        activeSection === item.href.substring(1) ? "text-primary font-medium" : "text-muted-foreground"
+                      }`}
+                    >
+                      {item.name}
+                    </button>
+                  ))}
+                  <Link
+                    to="/blog"
+                    onClick={() => setIsOpen(false)}
+                    className="text-left py-2 transition-colors hover:text-primary text-muted-foreground"
+                  >
+                    Blog
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/"
+                    onClick={() => setIsOpen(false)}
+                    className="text-left py-2 transition-colors hover:text-primary text-muted-foreground"
+                  >
+                    ← Home
+                  </Link>
+                  <Link
+                    to="/blog"
+                    onClick={() => setIsOpen(false)}
+                    className={`text-left py-2 transition-colors hover:text-primary ${
+                      isBlogPage ? "text-primary font-medium" : "text-muted-foreground"
+                    }`}
+                  >
+                    Blog
+                  </Link>
+                </>
+              )}
             </div>
           </motion.div>
         )}

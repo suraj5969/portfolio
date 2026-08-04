@@ -63,3 +63,15 @@ export interface SocialLink {
   url: string;
   icon: React.FC<IconProps>;
 }
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  tags: string[];
+  coverImage?: string;
+  readingTime: number;
+  published: boolean;
+  content: string;
+}
