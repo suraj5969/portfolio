@@ -1,11 +1,10 @@
 ---
-title: "I'm Over Thinking To Much"
-slug: "i-am-over-thinking-to-much"
-date: "2026-08-04"
-excerpt: "I need to work instead of overthinking."
-tags: ["Life"]
-coverImage: "/public/images/blog/overthinkling.webp"
-published: false
+title: "I'm Overthinking Too Much"
+description: "I need to work instead of overthinking."
+pubDate: "2026-08-04"
+heroImage: "../../assets/blog/overthinking.webp"
+tags: ["life"]
+draft: true
 ---
 
 Literally, I'm overthinking so much. I'm overthinking what I want to do. how I will do it will I be able to do it in future or not what I'm doing how do I reach to the destination there are so many things that are going in my head but I know that I'm overthinking This is all useless. The only thing that matters is I work for that. I'm 26. I want to build the AI models. I want to be that technical guy who knows how to train an AI model and work over it. I'm stuck in a job. I don't wnat be in the job. I'm middle class I want to leave the job just run away from the job and just dedicate my full time to the to learning I tried I left the job I am jobless from last seven months and I achieved nothing I did not plan it I never knew how to plan things and plan anyway does not succeed but I am not satisfied my last seven months clearly I did not thought how I did not have any plan, any mindset of what I'll do, how I'll do in the in the next six months of my break I'm just not able to do it, but I'll try. I'll not stop. I'll try again. I'll do it while at the job. I don't have any other option. I can't be away from the job from. Now from last two months it's just been a waste of my time I'm just searching for jobs creating resumes applying and fucking preparing for jobs. I'm not able to concentrate on anything I'm so tired but I'll not leave it I'll try I'll try I'll try as much as I can I'll do it I'll try it even if I feel tierd. I'll still do it I'll try

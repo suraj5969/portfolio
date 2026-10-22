@@ -1,0 +1,326 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { blogPostingSchema, breadcrumbListSchema, SITE_URL } from '../lib/schema';
+
+type Props = CollectionEntry<'blog'>['data'] & {
+	slug: string;
+};
+
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	tags,
+	slug,
+} = Astro.props;
+
+const blogIndexPath = '/blog/';
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImage = `/og/blog/${slug}.png`;
+const ogImageUrl = new URL(ogImage, Astro.site).toString();
+const postSchema = blogPostingSchema({
+	pageUrl,
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	imageUrl: ogImageUrl,
+	keywords: tags,
+});
+const breadcrumb = breadcrumbListSchema([
+	{ name: 'Home', url: `${SITE_URL}/` },
+	{ name: 'Blog', url: `${SITE_URL}${blogIndexPath}` },
+	{ name: title, url: pageUrl },
+]);
+---
+
+<html lang="en">
+	<head>
+		<BaseHead
+			title={title}
+			description={description}
+			ogImage={ogImage}
+			pageSchema={[postSchema, breadcrumb]}
+		/>
+	</head>
+
+	<body>
+		<Header />
+		<main>
+			<article>
+				<p class="eyebrow">
+					<span class="num">03</span>
+					<a href={blogIndexPath}>Blog</a>
+				</p>
+				<header class="post-head">
+					<h1>{title}</h1>
+					<div class="meta">
+						<FormattedDate date={pubDate} />
+						{
+							updatedDate && (
+								<>
+									<span class="dot">·</span>
+									<span class="updated">
+										updated <FormattedDate date={updatedDate} />
+									</span>
+								</>
+							)
+						}
+						{
+							tags && tags.length > 0 && (
+								<>
+									<span class="dot">·</span>
+									<span class="tags">
+										{tags.map((tag, i) => (
+											<>
+												{i > 0 && <span class="tag-sep">·</span>}
+												<span class="tag">{tag}</span>
+											</>
+										))}
+									</span>
+								</>
+							)
+						}
+					</div>
+				</header>
+
+				{
+					heroImage && (
+						<figure class="hero-image">
+							<Image width={1280} height={640} src={heroImage} alt="" />
+						</figure>
+					)
+				}
+
+				<div class="prose">
+					<slot />
+				</div>
+
+				<footer class="post-foot">
+					<a class="back" href={blogIndexPath}>← back to all notes</a>
+				</footer>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		width: 720px;
+		max-width: calc(100% - 2.5em);
+	}
+	.eyebrow {
+		font-family: var(--font-mono);
+		font-size: 12px;
+		text-transform: lowercase;
+		letter-spacing: 0.04em;
+		color: var(--text-muted);
+		margin: 0 0 2.5em;
+	}
+	.eyebrow .num {
+		color: var(--accent);
+		margin-right: 0.5em;
+	}
+	.eyebrow a {
+		color: var(--text-muted);
+		text-decoration: none;
+	}
+	.eyebrow a:hover {
+		color: var(--accent);
+	}
+	.post-head {
+		margin-bottom: 2em;
+	}
+	.post-head h1 {
+		font-family: var(--font-display);
+		font-style: italic;
+		font-weight: 400;
+		font-size: clamp(2.2rem, 5vw, 3.4rem);
+		letter-spacing: -0.01em;
+		line-height: 1.1;
+		margin: 0 0 0.6em;
+	}
+	.meta {
+		font-family: var(--font-mono);
+		font-size: 12px;
+		color: var(--text-muted);
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+		flex-wrap: wrap;
+	}
+	.meta .dot,
+	.meta .tag-sep {
+		color: var(--text-subtle);
+	}
+	.meta .updated {
+		color: var(--text-subtle);
+	}
+	.tags {
+		display: inline-flex;
+		gap: 0.5em;
+		align-items: baseline;
+		color: var(--text-subtle);
+	}
+	.tag {
+		color: var(--text-muted);
+	}
+	.hero-image {
+		margin: 0 0 2.5em;
+	}
+	.hero-image img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 4px;
+		border: 1px solid var(--rule);
+	}
+
+	.prose {
+		font-size: 1.02rem;
+		line-height: 1.7;
+	}
+	.prose :global(h2) {
+		font-family: var(--font-display);
+		font-style: italic;
+		font-weight: 500;
+		font-size: 1.7rem;
+		margin-top: 2em;
+		margin-bottom: 0.6em;
+	}
+	.prose :global(h3) {
+		font-family: var(--font-display);
+		font-weight: 500;
+		font-size: 1.3rem;
+		margin-top: 1.6em;
+		margin-bottom: 0.5em;
+	}
+	.prose :global(p) {
+		margin: 0 0 1.2em;
+	}
+	.prose :global(a) {
+		color: var(--text);
+		text-decoration: underline;
+		text-decoration-color: var(--accent);
+		text-underline-offset: 3px;
+	}
+	.prose :global(a:hover) {
+		color: var(--accent);
+	}
+	.prose :global(blockquote) {
+		font-family: var(--font-display);
+		font-style: italic;
+		font-size: 1.2em;
+		color: var(--text-muted);
+		border-left: 2px solid var(--accent);
+		padding: 0.2em 0 0.2em 1.2em;
+		margin: 1.5em 0;
+	}
+	.prose :global(hr) {
+		border: none;
+		border-top: 1px solid var(--text-muted);
+		margin: 2.5em 0;
+	}
+	.prose :global(picture),
+	.prose :global(figure) {
+		display: block;
+		margin: 1.8em 0;
+	}
+	.prose :global(picture img),
+	.prose :global(figure img),
+	.prose :global(p > img) {
+		display: block;
+		max-width: 100%;
+		height: auto;
+		margin: 0 auto;
+		border-radius: 4px;
+	}
+	.prose :global(ul),
+	.prose :global(ol) {
+		padding-left: 1.4em;
+	}
+	.prose :global(li) {
+		margin-bottom: 0.4em;
+	}
+	.prose :global(table) {
+		width: 100%;
+		border-collapse: collapse;
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		margin: 1.5em 0;
+		border-top: 1px solid var(--text-muted);
+		border-bottom: 1px solid var(--text-muted);
+	}
+	.prose :global(thead) {
+		border-bottom: 1px solid var(--rule);
+	}
+	.prose :global(th) {
+		text-align: left;
+		font-weight: 500;
+		padding: 0.6em 0.5em;
+		color: var(--text);
+		font-family: var(--font-mono);
+	}
+	.prose :global(td) {
+		padding: 0.5em 0.5em;
+		color: var(--text-muted);
+		border-top: 1px solid var(--rule);
+	}
+	.prose :global(td:first-child),
+	.prose :global(th:first-child) {
+		padding-left: 0;
+	}
+	.prose :global(td:last-child),
+	.prose :global(th:last-child) {
+		padding-right: 0;
+	}
+	.prose :global(td strong) {
+		color: var(--text);
+	}
+	.prose :global(pre) {
+		font-family: var(--font-mono);
+		font-size: 0.86rem;
+		line-height: 1.55;
+		padding: 1em 1.2em;
+		border-radius: 4px;
+		border: 1px solid var(--rule);
+		background-color: var(--bg-elevated);
+		overflow-x: auto;
+		margin: 1.4em 0;
+	}
+	.prose :global(pre code) {
+		all: unset;
+		font-family: inherit;
+	}
+	.prose :global(:not(pre) > code) {
+		font-family: var(--font-mono);
+		font-size: 0.86em;
+		padding: 0.1em 0.35em;
+		background-color: var(--accent-soft);
+		border-radius: 3px;
+	}
+
+	.post-foot {
+		margin-top: 4em;
+		padding-top: 1.5em;
+		border-top: 1px solid var(--text-muted);
+		font-family: var(--font-mono);
+		font-size: 13px;
+	}
+	.back {
+		color: var(--text-muted);
+		text-decoration: none;
+	}
+	.back:hover {
+		color: var(--accent);
+	}
+</style>

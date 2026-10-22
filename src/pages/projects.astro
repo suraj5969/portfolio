@@ -1,0 +1,192 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SOCIAL_LINKS } from '../consts';
+import { breadcrumbListSchema, collectionPageSchema, SITE_URL } from '../lib/schema';
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const description = 'Things Suraj Gupta has built — open source, side projects, and products shipped at work.';
+
+// `url` is where the row links: the live product if there is one, otherwise the code.
+const projects = [
+	{
+		name: 'RAG Chatbot',
+		blurb:
+			'AI assistant that answers queries using hybrid retrieval over vector embeddings. Runs local inference with llama.cpp.',
+		stack: 'Python · LangChain · Chroma · FastAPI',
+		url: 'https://github.com/suraj5969/rag-chatbot',
+	},
+	{
+		name: 'sequelize-with-spatialite',
+		blurb:
+			'npm package adding SpatiaLite support to the Sequelize ORM on SQLite — geospatial queries and operations in Node.js.',
+		stack: 'Node.js · SQLite · Sequelize',
+		url: 'https://www.npmjs.com/package/sequelize-with-spatialite',
+	},
+	{
+		name: 'Disable Autogain Control',
+		blurb: 'Chrome extension that disables auto-gain control on web audio streams. Because calls should just work.',
+		stack: 'JavaScript · Web Audio API',
+		url: 'https://github.com/suraj5969/disable-autogain-control-extension',
+	},
+	{
+		name: 'TaskSprint',
+		blurb:
+			'Project-management app for teams: real-time updates, drag-and-drop Kanban boards, time tracking, and an analytics dashboard.',
+		stack: 'React · Next.js · Postgres',
+		url: 'https://tasksprint.app/',
+	},
+	{
+		name: 'Process Safety',
+		blurb:
+			'Process-safety management system at SafetyConnect — incident reporting, risk assessment, and compliance tracking.',
+		stack: 'React · TypeScript · Express · PostgreSQL · AWS',
+		url: 'https://www.safetyconnect.io/process-safety',
+	},
+	{
+		name: 'Driver Safety',
+		blurb:
+			'Driver-safety app at SafetyConnect that monitors driving behaviour with real-time feedback, GPS tracking, and incident reporting.',
+		stack: 'React · TypeScript · Redis · AWS',
+		url: 'https://www.safetyconnect.io/driving-safety',
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Projects — Suraj Gupta"
+			description={description}
+			ogImage="/og/projects.png"
+			pageSchema={[
+				collectionPageSchema({ pageUrl, name: 'Projects — Suraj Gupta', description }),
+				breadcrumbListSchema([
+					{ name: 'Home', url: `${SITE_URL}/` },
+					{ name: 'Projects', url: pageUrl },
+				]),
+			]}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<p class="eyebrow">
+				<span class="num">02</span> Projects
+			</p>
+			<h1><em>Projects</em>.</h1>
+			<p class="lede">
+				Open source, side projects, and products shipped at work. More on
+				<a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer">GitHub</a>.
+			</p>
+
+			<ul class="projects">
+				{
+					projects.map((project) => (
+						<li>
+							<a href={project.url} target="_blank" rel="noopener noreferrer">
+								<div class="project-head">
+									<span class="project-name">{project.name}</span>
+									<span class="project-stack">{project.stack}</span>
+									<span class="arrow">↗</span>
+								</div>
+								<p class="project-blurb">{project.blurb}</p>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.eyebrow {
+		font-family: var(--font-mono);
+		font-size: 12px;
+		text-transform: lowercase;
+		letter-spacing: 0.04em;
+		color: var(--text-muted);
+		margin: 0 0 1.5em;
+	}
+	.eyebrow .num {
+		color: var(--accent);
+		margin-right: 0.4em;
+	}
+	h1 em {
+		font-style: italic;
+		color: var(--accent);
+	}
+	.lede {
+		font-family: var(--font-display);
+		font-size: 1.3rem;
+		font-style: italic;
+		color: var(--text-muted);
+		max-width: 32em;
+		margin-bottom: 2.5em;
+	}
+	.arrow {
+		color: var(--text-muted);
+	}
+	.projects {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		border-top: 1px solid var(--text-muted);
+	}
+	.projects li {
+		border-bottom: 1px solid var(--rule);
+	}
+	.projects a {
+		display: block;
+		padding: 1em 0.4em;
+		text-decoration: none;
+		color: var(--text);
+		transition: padding 0.18s ease;
+	}
+	.projects a:hover {
+		padding-left: 1em;
+		background: var(--accent-soft);
+	}
+	.projects a:hover .arrow {
+		color: var(--accent);
+	}
+	.project-head {
+		display: flex;
+		align-items: baseline;
+		gap: 0.8em;
+		margin-bottom: 0.3em;
+	}
+	.project-name {
+		font-family: var(--font-display);
+		font-style: italic;
+		font-size: 1.2rem;
+		color: var(--accent);
+	}
+	.project-stack {
+		font-family: var(--font-mono);
+		font-size: 11px;
+		color: var(--text-subtle);
+		letter-spacing: 0.04em;
+		margin-left: auto;
+	}
+	.project-blurb {
+		margin: 0;
+		color: var(--text-muted);
+		font-size: 0.95rem;
+		max-width: 42em;
+	}
+	@media (max-width: 540px) {
+		.project-head {
+			flex-wrap: wrap;
+		}
+		.project-stack {
+			margin-left: 0;
+			order: 3;
+			width: 100%;
+		}
+	}
+</style>

@@ -1,0 +1,221 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import SectionMarker from '../components/SectionMarker.astro';
+import { SITE_DESCRIPTION, SITE_TITLE, SOCIAL_LINKS } from '../consts';
+import { getBlogPosts } from '../lib/blog';
+
+const links = [
+	{ key: 'github', val: SOCIAL_LINKS.githubHandle, href: SOCIAL_LINKS.github },
+	{ key: 'linkedin', val: SOCIAL_LINKS.linkedinHandle, href: SOCIAL_LINKS.linkedin },
+	{ key: 'x', val: SOCIAL_LINKS.xHandle, href: SOCIAL_LINKS.x },
+	{ key: 'instagram', val: SOCIAL_LINKS.instagramHandle, href: SOCIAL_LINKS.instagram },
+	{ key: 'email', val: SOCIAL_LINKS.email, href: `mailto:${SOCIAL_LINKS.email}` },
+];
+
+const recent = (await getBlogPosts())
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<p class="eyebrow">
+					<span class="dot-mark"></span>
+					Personal site of
+				</p>
+				<h1>
+					Suraj <em>Gupta</em>.
+				</h1>
+				<p class="tagline">
+					Full stack engineer. I build AI-powered products, scalable backends, and the teams that ship them.
+				</p>
+				<p class="lede">
+					5+ years shipping production web apps — most recently as tech lead at
+					<a href="https://www.safetyconnect.io/" target="_blank" rel="noopener noreferrer">SafetyConnect</a>,
+					building chatbots, designing system architectures, and handling AWS infra underneath. Now curious about
+					AI engineering and machine learning.
+				</p>
+				<p class="cta">
+					<a href="/projects">see my work →</a>
+					<a href="/about">about me →</a>
+				</p>
+			</section>
+
+			{
+				recent.length > 0 && (
+					<section class="elsewhere">
+						<h2>
+							<SectionMarker class="section-glyph" /> Latest writing
+						</h2>
+						<ul class="link-list">
+							{recent.map((post) => (
+								<li>
+									<a href={`/blog/${post.id}/`}>
+										<span class="key">
+											<FormattedDate date={post.data.pubDate} />
+										</span>
+										<span class="val">{post.data.title}</span>
+										<span class="arrow">→</span>
+									</a>
+								</li>
+							))}
+						</ul>
+					</section>
+				)
+			}
+
+			<section class="elsewhere">
+				<h2>
+					<SectionMarker class="section-glyph" /> Elsewhere
+				</h2>
+				<ul class="link-list">
+					{
+						links.map((link) => (
+							<li>
+								<a
+									href={link.href}
+									{...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+								>
+									<span class="key">{link.key}</span>
+									<span class="val">{link.val}</span>
+									<span class="arrow">{link.href.startsWith('http') ? '↗' : '→'}</span>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.hero {
+		padding: 1em 0 2em;
+	}
+	.eyebrow {
+		display: flex;
+		align-items: center;
+		gap: 0.6em;
+		font-family: var(--font-mono);
+		font-size: 12px;
+		text-transform: lowercase;
+		letter-spacing: 0.04em;
+		color: var(--text-muted);
+		margin: 0 0 1.5em;
+	}
+	.dot-mark {
+		display: inline-block;
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: var(--accent);
+		box-shadow: 0 0 0 4px var(--accent-soft);
+	}
+	.hero h1 {
+		margin: 0 0 0.2em;
+	}
+	.hero h1 em {
+		font-style: italic;
+		color: var(--accent);
+	}
+	.tagline {
+		font-family: var(--font-display);
+		font-style: italic;
+		font-size: 1.4rem;
+		color: var(--text-muted);
+		margin: 0 0 1.4em;
+	}
+	.lede {
+		font-size: 1.05rem;
+		max-width: 36em;
+		color: var(--text);
+	}
+	.cta {
+		display: flex;
+		gap: 1.5em;
+		font-family: var(--font-mono);
+		font-size: 14px;
+		margin: 1.6em 0 0;
+	}
+	.cta a {
+		color: var(--accent);
+		text-decoration: none;
+	}
+	.cta a:hover {
+		text-decoration: underline;
+	}
+
+	.elsewhere {
+		margin-top: 3em;
+	}
+	.elsewhere h2 {
+		display: flex;
+		align-items: baseline;
+		gap: 0.5em;
+		font-size: 1.5rem;
+		margin-top: 0;
+		margin-bottom: 1em;
+	}
+	.elsewhere h2 :global(.section-glyph) {
+		color: var(--accent);
+		flex-shrink: 0;
+	}
+	.link-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		border-top: 1px solid var(--text-muted);
+	}
+	.link-list li {
+		border-bottom: 1px solid var(--rule);
+	}
+	.link-list a {
+		display: grid;
+		grid-template-columns: 7em 1fr auto;
+		align-items: baseline;
+		gap: 1em;
+		padding: 0.85em 0.4em;
+		font-family: var(--font-mono);
+		font-size: 14px;
+		text-decoration: none;
+		color: var(--text);
+		transition: padding 0.18s ease;
+	}
+	.link-list a:hover {
+		padding-left: 1em;
+		background: var(--accent-soft);
+	}
+	.key {
+		color: var(--text-subtle);
+		text-transform: lowercase;
+		letter-spacing: 0.05em;
+	}
+	.val {
+		color: var(--text);
+	}
+	.arrow {
+		color: var(--text-muted);
+		font-family: var(--font-sans);
+	}
+	.link-list a:hover .arrow {
+		color: var(--accent);
+	}
+	@media (max-width: 540px) {
+		.link-list a {
+			grid-template-columns: 5.5em 1fr auto;
+			font-size: 13px;
+		}
+	}
+</style>

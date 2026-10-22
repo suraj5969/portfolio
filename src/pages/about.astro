@@ -1,0 +1,319 @@
+---
+import { Image } from 'astro:assets';
+import portrait from '../assets/portrait.png';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import SectionMarker from '../components/SectionMarker.astro';
+import { SOCIAL_LINKS } from '../consts';
+import { breadcrumbListSchema, profilePageSchema, SITE_URL } from '../lib/schema';
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const breadcrumb = breadcrumbListSchema([
+	{ name: 'Home', url: `${SITE_URL}/` },
+	{ name: 'About', url: pageUrl },
+]);
+
+const experience = [
+	{
+		role: 'Full Stack Developer / Tech Lead',
+		company: 'SafetyConnect',
+		companyUrl: 'https://www.safetyconnect.io/',
+		period: 'Feb 2023 — Mar 2026',
+		stack: 'TypeScript · Node.js · Python · AWS',
+		summary:
+			'Led a 6-person team building safety-analytics products. Shipped a RAG assistant over SQL analytics and product docs, a customizable dashboard, and the workflow engine behind a process-safety product. Reworked services and infra on AWS, cutting AWS cost by 30% and API latency by nearly 40%.',
+	},
+	{
+		role: 'Founding Engineer',
+		companyUrl: 'https://lstconsultancy.com/',
+		company: 'LST Consultancy',
+		period: 'Sep 2021 — Feb 2023',
+		stack: 'React · Next.js · Node.js · AWS',
+		summary:
+			'First engineer at a small consultancy. Delivered six green-field web apps for clients including LexisNexis, and built TaskSprint, a project-management SaaS with real-time collaboration and Stripe billing.',
+	},
+	{
+		role: 'Frontend Developer',
+		company: 'Freelance',
+		period: 'Jun 2020 — Jul 2021',
+		stack: 'HTML · CSS · JavaScript',
+		summary:
+			'Responsive, accessible websites for small clients',
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="About — Suraj Gupta"
+			description="Full stack engineer. Experience, contact."
+			ogImage="/og/about.png"
+			pageSchema={[profilePageSchema(pageUrl), breadcrumb]}
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<p class="eyebrow">
+				<span class="num">04</span> About
+			</p>
+			<div class="hero">
+				<div class="hero-text">
+					<h1><em>About</em>.</h1>
+					
+					<!--
+					 <p class="lede">
+						Full stack engineer.
+					</p>
+					 -->
+					
+				</div>
+			</div>
+
+			<p>
+				I'm a full stack developer with experience building end-to-end AI-powered products and scalable
+				web applications. My work spans LLM applications and RAG systems, along with modern backend and
+				frontend development. I enjoy hard engineering problems at the intersection of AI, scalable
+				systems, and software architecture.
+			</p>
+			<p>
+				<a href={SOCIAL_LINKS.resume} target="_blank" rel="noopener noreferrer">My resume →</a>
+			</p>
+
+			<h2><SectionMarker class="section-glyph" /> Experience</h2>
+			<ol class="timeline">
+				{
+					experience.map((job) => (
+						<li>
+							<div class="job-head">
+								<div class="job-title">
+									<strong>{job.role}</strong>
+									<span class="at">·</span>
+									{job.companyUrl ? (
+										<a href={job.companyUrl} target="_blank" rel="noopener noreferrer">
+											{job.company}
+										</a>
+									) : (
+										<span>{job.company}</span>
+									)}
+								</div>
+								<div class="job-meta">
+									<span class="period">{job.period}</span>
+									<span class="dot">·</span>
+									<span class="stack">{job.stack}</span>
+								</div>
+							</div>
+							<p class="job-summary">{job.summary}</p>
+						</li>
+					))
+				}
+			</ol>
+
+			<h2><SectionMarker class="section-glyph" /> Contact</h2>
+			<dl class="contact">
+				<dt>Email</dt>
+				<dd><a href={`mailto:${SOCIAL_LINKS.email}`}>{SOCIAL_LINKS.email}</a></dd>
+				<dt>GitHub</dt>
+				<dd>
+					<a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer">{SOCIAL_LINKS.githubHandle}</a>
+				</dd>
+				<dt>LinkedIn</dt>
+				<dd>
+					<a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">{SOCIAL_LINKS.linkedinHandle}</a>
+				</dd>
+				<dt>X</dt>
+				<dd>
+					<a href={SOCIAL_LINKS.x} target="_blank" rel="noopener noreferrer">{SOCIAL_LINKS.xHandle}</a>
+				</dd>
+				<dt>Instagram</dt>
+				<dd>
+					<a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer">{SOCIAL_LINKS.instagramHandle}</a>
+				</dd>
+			</dl>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.eyebrow {
+		font-family: var(--font-mono);
+		font-size: 12px;
+		text-transform: lowercase;
+		letter-spacing: 0.04em;
+		color: var(--text-muted);
+		margin: 0 0 1.5em;
+	}
+	.eyebrow .num {
+		color: var(--accent);
+		margin-right: 0.4em;
+	}
+	h1 em {
+		font-style: italic;
+		color: var(--accent);
+	}
+	.hero {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 2em;
+		align-items: start;
+		margin-bottom: 2em;
+	}
+	.hero-text {
+		min-width: 0;
+	}
+	.hero-text h1 {
+		margin-bottom: 0.4em;
+	}
+	.portrait {
+		margin: 0.5em 0 0;
+	}
+	.portrait img {
+		display: block;
+		width: 160px;
+		height: 160px;
+		border-radius: 4px;
+		border: 1px solid var(--rule);
+		filter: saturate(0.85);
+	}
+	@media (max-width: 620px) {
+		.hero {
+			grid-template-columns: 1fr;
+			gap: 1.5em;
+		}
+		.portrait {
+			order: -1;
+			margin-top: 0;
+		}
+		.portrait img {
+			width: 120px;
+			height: 120px;
+		}
+	}
+
+	.lede {
+		font-family: var(--font-display);
+		font-size: 1.4rem;
+		font-style: italic;
+		line-height: 1.35;
+		color: var(--text-muted);
+		max-width: 30em;
+		margin-bottom: 0;
+	}
+	.lede a {
+		color: var(--text-muted);
+		text-decoration-color: var(--text-subtle);
+	}
+	.lede a:hover {
+		color: var(--accent);
+		text-decoration-color: var(--accent);
+	}
+
+	h2 {
+		display: flex;
+		align-items: baseline;
+		gap: 0.5em;
+		font-size: 1.5rem;
+		margin-top: 2.6em;
+		margin-bottom: 1em;
+	}
+	h2 :global(.section-glyph) {
+		color: var(--accent);
+		flex-shrink: 0;
+	}
+
+	.timeline {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		border-top: 1px solid var(--text-muted);
+	}
+	.timeline > li {
+		padding: 1.4em 0;
+		border-bottom: 1px solid var(--rule);
+	}
+	.job-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1em;
+		flex-wrap: wrap;
+		margin-bottom: 0.4em;
+	}
+	.job-title {
+		font-family: var(--font-display);
+		font-size: 1.15rem;
+	}
+	.job-title strong {
+		font-weight: 500;
+	}
+	.job-title .at {
+		color: var(--text-subtle);
+		margin: 0 0.4em;
+	}
+	.job-title a {
+		color: var(--text);
+		text-decoration: none;
+		font-style: italic;
+		color: var(--accent);
+	}
+	.job-title a:hover {
+		text-decoration: underline;
+		text-decoration-color: var(--accent);
+	}
+	.job-meta {
+		font-family: var(--font-mono);
+		font-size: 12px;
+		color: var(--text-muted);
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+	}
+	.job-meta .dot {
+		color: var(--text-subtle);
+	}
+	.job-meta .stack {
+		color: var(--text-subtle);
+	}
+	.job-summary {
+		margin: 0;
+		color: var(--text-muted);
+		font-size: 0.97rem;
+		max-width: 42em;
+	}
+
+	.contact {
+		display: grid;
+		grid-template-columns: 7em 1fr;
+		gap: 0.6em 1em;
+		font-family: var(--font-mono);
+		font-size: 14px;
+		margin: 0;
+		border-top: 1px solid var(--text-muted);
+		padding-top: 1em;
+	}
+	.contact dt {
+		color: var(--text-subtle);
+		text-transform: lowercase;
+		letter-spacing: 0.05em;
+	}
+	.contact dd {
+		margin: 0;
+	}
+	.contact a {
+		color: var(--text);
+	}
+	.contact a:hover {
+		color: var(--accent);
+	}
+
+	@media (max-width: 540px) {
+		.job-head {
+			flex-direction: column;
+			gap: 0.3em;
+		}
+	}
+</style>
