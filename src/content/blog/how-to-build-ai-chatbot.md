@@ -1,5 +1,5 @@
 ---
-title: "How I Built an AI Chatbot That Talks to Our Database"
+title: "How I Built an AI Chatbot"
 description: "What it takes to build a chatbot that answers questions from real customer data, safely."
 pubDate: "2026-10-25"
 heroImage: "../../assets/blog/chatbot.png"
