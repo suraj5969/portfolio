@@ -22,6 +22,9 @@ const {
 } = Astro.props;
 
 const blogIndexPath = '/blog/';
+const AI_DISCLOSURE_SLUG = 'is-it-written-by-ai';
+const aiDisclosurePath = `/blog/${AI_DISCLOSURE_SLUG}/`;
+const showAiDisclosure = slug !== AI_DISCLOSURE_SLUG;
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const ogImage = `/og/blog/${slug}.png`;
@@ -106,6 +109,13 @@ const breadcrumb = breadcrumbListSchema([
 
 				<footer class="post-foot">
 					<a class="back" href={blogIndexPath}>← back to all notes</a>
+					{
+						showAiDisclosure && (
+							<a class="ai-note" href={aiDisclosurePath}>
+								is this blog written by ai?
+							</a>
+						)
+					}
 				</footer>
 			</article>
 		</main>
@@ -315,12 +325,27 @@ const breadcrumb = breadcrumbListSchema([
 		border-top: 1px solid var(--text-muted);
 		font-family: var(--font-mono);
 		font-size: 13px;
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: 0.75em 1.5em;
 	}
 	.back {
 		color: var(--text-muted);
 		text-decoration: none;
 	}
-	.back:hover {
+	.ai-note {
+		color: var(--text-subtle);
+		text-decoration: underline;
+		text-decoration-color: var(--rule);
+		text-underline-offset: 3px;
+	}
+	.back:hover,
+	.ai-note:hover {
 		color: var(--accent);
+	}
+	.ai-note:hover {
+		text-decoration-color: var(--accent);
 	}
 </style>
