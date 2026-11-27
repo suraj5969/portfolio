@@ -3,6 +3,7 @@ title: "How I Built an AI Chatbot"
 description: "What it takes to build a chatbot that answers questions from real customer data, safely."
 pubDate: "2026-10-25"
 heroImage: "../../assets/blog/chatbot.png"
+tags: ["AI", "chatbot", "LLM"]
 ---
 
 We recently shipped an AI assistant inside SafetyConnect, our fleet and workplace safety platform. A safety manager can type something like *"Which drivers had the most harsh braking events in the North region last month?"* and get back a short answer, a chart, and a few follow-up questions worth asking next.

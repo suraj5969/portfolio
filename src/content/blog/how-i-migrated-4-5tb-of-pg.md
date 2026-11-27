@@ -2,6 +2,7 @@
 title: "How I Migrated a 4.5 TB Postgres DB with 92 Seconds of Downtime"
 description: "How I migrated two Postgres databases, cut storage by 70%, and upgraded to Postgres 18."
 pubDate: "2026-11-27"
+tags: ["Postgres"]
 ---
 
 I recently migrated my company's 4.5 terabytes of postgres database to a new database instance. Successfully migrating within 92 seconds of downtime and reducing the storage by 70% (yeah that's right), updating postgres to the latest version, and and lot more. This post is a detailed account of how I did it, the challenges I faced, and the lessons I learned along the way.
