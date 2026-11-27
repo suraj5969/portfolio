@@ -77,21 +77,6 @@ const breadcrumb = breadcrumbListSchema([
 								</>
 							)
 						}
-						{
-							tags && tags.length > 0 && (
-								<>
-									<span class="dot">·</span>
-									<span class="tags">
-										{tags.map((tag, i) => (
-											<>
-												{i > 0 && <span class="tag-sep">·</span>}
-												<span class="tag">{tag}</span>
-											</>
-										))}
-									</span>
-								</>
-							)
-						}
 					</div>
 				</header>
 
@@ -168,21 +153,11 @@ const breadcrumb = breadcrumbListSchema([
 		gap: 0.5em;
 		flex-wrap: wrap;
 	}
-	.meta .dot,
-	.meta .tag-sep {
+	.meta .dot {
 		color: var(--text-subtle);
 	}
 	.meta .updated {
 		color: var(--text-subtle);
-	}
-	.tags {
-		display: inline-flex;
-		gap: 0.5em;
-		align-items: baseline;
-		color: var(--text-subtle);
-	}
-	.tag {
-		color: var(--text-muted);
 	}
 	.hero-image {
 		margin: 0 0 2.5em;
