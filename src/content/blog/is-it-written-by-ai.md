@@ -2,7 +2,6 @@
 title: "Are my blogs written by AI"
 description: "How I use AI to draft and edit my blog posts."
 pubDate: "2026-11-25"
-tags: ["AI"]
 ---
 
 ## Are my blogs written by AI?
